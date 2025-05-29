@@ -227,7 +227,7 @@
                     <p class="order__subtitle text">
                         Подтвердите, пожалуйста, свое участие в торжестве
                     </p>
-                    <form class="order__form js-form">
+                   <!--  <form class="order__form js-form">
                         <input type="text" class="order__input" name="имя" minlength="2" required
                             placeholder="Имя и Фамилия">
                         <input type="number" class="order__input" name="количество" min="0" max="30" required
@@ -242,6 +242,52 @@
                                 <span>Я не смогу прийти</span>
                             </label>
                         </div>
+                        <input type="hidden" name="дата" class="js-form-date">
+                        <button class="order__submit" type="submit">отправить</button>
+                    </form> SHIFT+ALT+A -->
+                    <form class="order__form js-form">
+                        <input type="text" class="order__input" name="имя" minlength="2" required placeholder="Имя и Фамилия">
+                        <input type="email" class="order__input" name="email" required placeholder="Email">
+                        <div class="order__be">
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
+                                <span>Я смогу прийти</span>
+                            </label>
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="false" value="нет">
+                                <span>Я не смогу прийти</span>
+                            </label>
+                        </div>
+                <div id="блок_сам_или_семья" style="display:none;">
+                        <div class="order__be">
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="тип_гостя" value="сам" required>
+                                <span>Сам / сама</span>
+                            </label>
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="тип_гостя" value="семья">
+                                <span>С семьёй</span>
+                            </label>
+                        </div>
+                        <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
+                            <label class="order__label">
+                                <input type="checkbox" class="order__checkbox" name="с_кем[]" value="супруг">
+                                <span>Супруг / Супруга </span>
+                            </label>
+                            <label class="order__label">
+                                <input type="checkbox" class="order__checkbox" id="детиЧек" name="с_кем[]" value="дети">
+                                <span>Дети</span>
+                            </label>
+                    
+                            <div id="дети" style="display:none; margin-top:10px;">
+                                <div class="ребёнок">
+                                    <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Имя ребёнка" required>
+                                    <input type="number" class="order__input" name="ребёнок_возраст[]" placeholder="Возраст" min="0" required>
+                                </div>
+                                <button type="button" class="order__butее" id="добавитьРебёнка" style="margin-top:10px;">Добавить ещё ребёнка</button>
+                            </div>
+                        </div>
+                </div>
                         <input type="hidden" name="дата" class="js-form-date">
                         <button class="order__submit" type="submit">отправить</button>
                     </form>
@@ -297,7 +343,7 @@
     <script defer src="js/jquery.min.js"></script>
     <script defer src="js/swiper-bundle.min.js"></script>
     <script defer src="js/main.js"></script>
-
+    <script defer src="js/form.js"></script>
 </body>
 
 </html>
