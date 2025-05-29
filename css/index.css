@@ -420,7 +420,7 @@ body.is-loader {
   width: 7rem;
   height: 7rem;
   border-radius: 50%;
-  border: 0.2rem solid rgba(142, 104, 8, 0.4); /*Грани круга*/
+  border: 0.2rem solid rgb(212, 209, 201); /*Грани круга*/
 }
 
 .dress__item:nth-child(1) {
