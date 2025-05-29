@@ -57,7 +57,7 @@ form.addEventListener("submit", (event) => {
 });
 
 // timer
-const targetDate = new Date("2024-11-16T11:00:00+02:00").getTime();
+const targetDate = new Date("2025-09-14T12:30:00+02:00").getTime();
 const timerElement = document.querySelector(".date__timer");
 
 function updateTimer() {

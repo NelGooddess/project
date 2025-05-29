@@ -424,23 +424,23 @@ body.is-loader {
 }
 
 .dress__item:nth-child(1) {
-  background-color: #e0d6d5; /*1 цвет*/
+  background-color: #9c7a6eff; /*1 цвет*/
 }
 
 .dress__item:nth-child(2) {
-  background-color: #646464; /*2 цвет*/
+  background-color: #a9907aff; /*2 цвет*/
 }
 
 .dress__item:nth-child(3) {
-  background-color: #cfb4a4ff; /*3 цвет*/
+  background-color: #d3bba1ff; /*3 цвет*/
 }
 
 .dress__item:nth-child(4) {
-  background-color: #6e7b61; /*4 цвет*/
+  background-color: #e4d2c4ff; /*4 цвет*/
 }
 
 .dress__item:nth-child(5) {
-  background-color: #d5cebc; /*5 цвет*/
+  background-color: #f1f1efff; /*5 цвет*/
 }
 
 .programm__title {
