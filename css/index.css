@@ -923,3 +923,14 @@ body.is-loader {
   font-weight: 700;
   letter-spacing: 0.2rem;
 }
+
+#lang-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  z-index: 9999;
+}
