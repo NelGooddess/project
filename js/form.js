@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <button type="button" class="order__buttt">Удалить</button>
     `;
     детиBlock.appendChild(ребёнокDiv);
-
     ребёнокDiv.querySelector('.order__buttt').addEventListener('click', () => {
       ребёнокDiv.remove();
     });
@@ -80,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     дети.forEach((ребёнок, index) => {
       if (index > 0) ребёнок.remove();
       else {
-        ребёнок.querySelector('input[name="ребёнок_имя1"]').value = '';
-        ребёнок.querySelector('input[name="ребёнок_возраст1"]').value = '';
+        ребёнок.querySelector('input[name="ребёнок_имя"]').value = '';
+        ребёнок.querySelector('input[name="ребёнок_возраст"]').value = '';
       }
     });
   }
