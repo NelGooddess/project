@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     дети.forEach((ребёнок, index) => {
       if (index > 0) ребёнок.remove();
       else {
-        ребёнок.querySelector('input[name="ребёнок_имя"]').value = '';
-        ребёнок.querySelector('input[name="ребёнок_возраст"]').value = '';
+        ребёнок.querySelector('input[name="ребёнок_имя1"]').value = '';
+        ребёнок.querySelector('input[name="ребёнок_возраст1"]').value = '';
       }
     });
   }
