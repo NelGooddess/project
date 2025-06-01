@@ -944,7 +944,9 @@ body.is-loader {
 }
 
 
-.order__butее {
+.order__buttt {
+  padding: 10px 35px;
+  margin-top:10px;
   width: 100%;
   background-color: #eebabad7;
   border-radius: 1rem;

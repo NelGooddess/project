@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ребёнокDiv.innerHTML = `
         <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Имя ребёнка" required>
         <input type="number" class="order__input" name="ребёнок_возраст[]" placeholder="Возраст" min="0" required>
-        <button type="button" class="order__butее" style="margin-top:10px;" >Удалить</button>
+        <button type="button" class="order__buttt" >Удалить</button>
       `;
       детиBlock.appendChild(ребёнокDiv);
 
