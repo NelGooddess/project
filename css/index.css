@@ -153,9 +153,6 @@ body.is-loader {
   background-color: rgba(84, 84, 83, 0.4);
 }
 
-.decor img {
-  display: none;
-}
 
 .heart {
   display: -webkit-box;
