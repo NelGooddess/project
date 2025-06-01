@@ -28,7 +28,7 @@ setInterval(() => {
     loader.classList.remove("active");
 }, 1100);
 
-const toggleRequiredFields = () => {
+ const toggleRequiredFields = () => {
     const isGuestBlockVisible = document.getElementById("блок_сам_или_семья").style.display !== "none";
     const isKidsBlockVisible = document.getElementById("дети").style.display !== "none";
 
