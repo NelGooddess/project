@@ -48,7 +48,7 @@ form.addEventListener("submit", (event) => {
     loader.classList.add("active");
     document.body.classList.add("is-loader");
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzI2r-K69GbpZHcGh9g3FeiT09eBb9jp4XlbupKSwKJgogmun7h47rawDadsPEgBjH7/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyDtQgzB_tdx5ziMG4EvPADiNph3Ee2NOD3kgbNa3sXESpjBVWRYl_gkni9L43HYXsCfg/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
