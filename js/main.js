@@ -101,12 +101,9 @@ const isChrome = () => {
 const isSafari = () => {
     return (
         /Safari/.test(navigator.userAgent) &&
-        /Chrome/.test(navigator.userAgent) &&
-        /Edg/.test(navigator.userAgent) &&
-        /OPR/.test(navigator.userAgent)
-        /* !/Chrome/.test(navigator.userAgent) &&
+        !/Chrome/.test(navigator.userAgent) &&
         !/Edg/.test(navigator.userAgent) &&
-        !/OPR/.test(navigator.userAgent) */
+        !/OPR/.test(navigator.userAgent)
     );
 };
 
