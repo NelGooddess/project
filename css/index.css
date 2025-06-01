@@ -254,14 +254,14 @@ body.is-loader {
   z-index: 1;
   /* font-family: "Great Vibes", cursive; */
   font-family: "Lato", sans-serif;
-  padding-top: 2rem;
+  padding-top: 5rem;
   font-size: 9.5rem;
   line-height: 1.1;
   letter-spacing: 0.4rem;
   font-weight: 300;
   color: #FAF8F0;
   width: 100%;
-  margin-left: 3rem;
+  margin-left: 2rem;
   text-shadow: 0rem .3rem .4rem rgb(0, 0, 0);
 }
 
