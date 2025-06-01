@@ -253,6 +253,8 @@
                     <form class="order__form js-form">
                         <input type="text" class="order__input" name="имя" minlength="2" required placeholder="Name und Nachname">
                         <input type="email" class="order__input" name="email" required placeholder="Email">
+                        <input type="tel" class="order__input" name="phone" required placeholder="Telefonnummer" pattern="\+?\d{10,15}" >
+                        <input type="text" class="order__input" name="country" placeholder="Land" required>
                         <div class="order__be">
                             <label class="order__label">
                                 <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
@@ -275,15 +277,16 @@
                             </label>
                         </div>
                         <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
+                            <div class="order__be">
                             <label class="order__label">
                                 <input type="checkbox" class="order__checkbox" name="с_кем[]" value="супруг">
                                 <span>Ehepartner / Ehepartnerin</span>
-                            </label>
+                             </label>
                             <label class="order__label">
                                 <input type="checkbox" class="order__checkbox" id="детиЧек" name="с_кем[]" value="дети">
                                 <span>Kinder</span>
                             </label>
-                    
+                        </div>
                             <div id="дети" style="display:none; margin-top:10px;">
                                 <div class="ребёнок">
                                     <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Name des Kindes" required>
@@ -403,8 +406,8 @@
           ребёнокDiv.className = 'ребёнок';
           ребёнокDiv.style.marginTop = '10px';
           ребёнокDiv.innerHTML = `
-            <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Имя ребёнка" required>
-            <input type="number" class="order__input" name="ребёнок_возраст[]" placeholder="Возраст" min="0" required>
+            <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Name des Kindes" required>
+            <input type="number" class="order__input" name="ребёнок_возраст[]" placeholder="Alter" min="0" required>
             <button type="button" class="order__butее" style="margin-top:10px;" >Löschen</button>
           `;
           детиBlock.appendChild(ребёнокDiv);

@@ -205,7 +205,8 @@ body.is-loader {
   font-weight: 400;
   color: #FFFFFF;
   z-index: 2;
-  text-shadow: 0.1rem 0.1rem 3rem rgba(255, 255, 255, 0.58);
+  text-shadow: 1px 1px 5px black;
+
 }
 
 .hero__text {
@@ -224,7 +225,8 @@ body.is-loader {
   font-family: 'Palatino';
   font-weight: 200;
   font-size: 5rem;
-  text-shadow: 0.1rem 0.1rem 3rem rgba(255, 255, 255, 0.58);
+  text-shadow: 1px 1px 5px black;
+
 }
 
 .hero__block.active {
@@ -680,6 +682,46 @@ body.is-loader {
   opacity: 1;
 }
 
+
+.order__checkbox {
+  position: relative;
+  width: 3rem;   /* задаём размер чекбокса */
+  height: 3rem;
+  appearance: none; /* убираем стандартный вид чекбокса */
+  border: 0.2rem solid #000000b1;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+/*САМА ГАЛОЧКА*/
+.order__checkbox::after {
+  content: " ";
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem; 
+  width: 0.6rem;
+  height: 1.2rem;
+  border: solid transparent;
+  border-width: 0 0.3rem 0.3rem 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 300ms;
+  box-sizing: content-box;
+  border-color: transparent transparent #000000b1 transparent;
+}
+/*Фон за галочкой*/
+.order__checkbox:checked {
+  background-color: #000000b1;
+}
+/*Галочка цвет*/
+.order__checkbox:checked::after {
+  opacity: 1;
+  border-color: white;
+}
+
+
+
 .order__submit {
   width: 100%;
   height: 7.1rem;
@@ -694,7 +736,7 @@ body.is-loader {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-bottom: 5.3rem;
+  margin-bottom: 2.5rem;
   font-family: "Palatino";
   color: #FFFFFF;
   font-size: 2.4rem;

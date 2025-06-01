@@ -47,8 +47,9 @@
                 </div>
                 <div class="hero__block js-hero-block">
                     <p class="hero__text">
-                        «…и превознесём имя Его вместе» <br>
-                        Псалом 33:4
+                        «Большие воды не могут потушить любви, 
+                        и реки не зальют ее.» <br>
+                        Песня песней 8:7
                     </p>
                     <h1 class="hero__date">
                         14.09.2025
@@ -144,16 +145,17 @@
                         <img src="img/heart-mini.svg" alt="" width="50" height="50">
                         <div class="decor__right"></div>
                     </div>
-                    <p class="dress__text text">
-                        Мы были бы рады, если бы ты поддержал наш свадебный дресс-код... Одежда ваша да будет светлая во всякое время...
-                    </p>
+                    <p class="dress__text text"> Мы были бы рады, если бы ты поддержал наш свадебный дресс-код </p>
                     <ul class="dress__list">
                         <li class="dress__item"></li>
                         <li class="dress__item"></li>
                         <li class="dress__item"></li>
                         <li class="dress__item"></li>
                         <li class="dress__item"></li>
-                    </ul>
+                    </ul> 
+                    <br>
+                    <p class="dress__text text"> <i>...Одежда ваша да будет светлая во всякое время... Екклесиаст 9:8</i> </p>
+
                 </div>
             </section>
 
@@ -251,6 +253,8 @@
                     <form class="order__form js-form">
                         <input type="text" class="order__input" name="имя" minlength="2" required placeholder="Имя и Фамилия">
                         <input type="email" class="order__input" name="email" required placeholder="Email">
+                        <input type="tel" class="order__input" name="phone" required placeholder="Номер телефона" pattern="\+?\d{10,15}" >
+                        <input type="text" class="order__input" name="country" placeholder="Страна" required>
                         <div class="order__be">
                             <label class="order__label">
                                 <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
@@ -273,6 +277,7 @@
                             </label>
                         </div>
                         <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
+                            <div class="order__be">
                             <label class="order__label">
                                 <input type="checkbox" class="order__checkbox" name="с_кем[]" value="супруг">
                                 <span>Супруг / Супруга </span>
@@ -281,7 +286,7 @@
                                 <input type="checkbox" class="order__checkbox" id="детиЧек" name="с_кем[]" value="дети">
                                 <span>Дети</span>
                             </label>
-                    
+                    </div>
                             <div id="дети" style="display:none; margin-top:10px;">
                                 <div class="ребёнок">
                                     <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Имя ребёнка" required>
@@ -293,6 +298,10 @@
                 </div>
                         <input type="hidden" name="дата" class="js-form-date">
                         <button class="order__submit" type="submit">отправить</button>
+                        <p style="font-size: 1.5rem; color: #555; margin-bottom: 3rem;">
+                            *При проблеме с отправлением анкеты или других неполадок страницы, писать 
+                            <a href="https://t.me/newlifeN0" target="_blank" rel="noopener noreferrer">Nelli. </a>
+                        </p>
                     </form>
                     <div class="heart">
                         <img src="img/heart-big.svg" alt="" width="70" height="73">
