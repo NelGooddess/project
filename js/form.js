@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ребёнокDiv.className = 'ребёнок';
       ребёнокDiv.style.marginTop = '10px';
       ребёнокDiv.innerHTML = `
-        <input type="text" class="order__input" name="ребёнок_имя[]" placeholder="Имя ребёнка" required>
-        <input type="number" class="order__input" name="ребёнок_возраст[]" placeholder="Возраст" min="0" required>
+        <input type="text" class="order__input" name="ребёнок_имя" placeholder="Имя ребёнка" required>
+        <input type="number" class="order__input" name="ребёнок_возраст" placeholder="Возраст" min="0" required>
         <button type="button" class="order__buttt" >Удалить</button>
       `;
       детиBlock.appendChild(ребёнокDiv);
@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
       дети.forEach((ребёнок, index) => {
         if (index > 0) ребёнок.remove();
         else {
-          ребёнок.querySelector('input[name="ребёнок_имя[]"]').value = '';
-          ребёнок.querySelector('input[name="ребёнок_возраст[]"]').value = '';
+          ребёнок.querySelector('input[name="ребёнок_имя"]').value = '';
+          ребёнок.querySelector('input[name="ребёнок_возраст"]').value = '';
         }
       });
     }

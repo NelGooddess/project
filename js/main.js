@@ -33,11 +33,10 @@ form.addEventListener("submit", (event) => {
     loader.classList.add("active");
     document.body.classList.add("is-loader");
 
-/*     const scriptURL =
-     "https://script.google.com/macros/s/AKfycbycYdPIrrPtKADvEgJHxz-0paH6AhBqWfFqm7L0ao1jlRSCYf9mH3JR6hcbXN8TeK01/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxG6FDnm75wO_r3IVRTqs2hRVUQ4Rilrxa9P9I47cEw2CCcw-9n4Ki5TIHhbT3pTIpGdg/exec";
 
    const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
-    document.querySelector(".js-form-date").value = dataTime;                                                         Код отправки данных на почту !!!!!!!!!!!!!!!*/
+    document.querySelector(".js-form-date").value = dataTime;                                                    
 
     fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((response) => {
