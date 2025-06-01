@@ -28,15 +28,30 @@ setInterval(() => {
     loader.classList.remove("active");
 }, 1100);
 
+const toggleRequiredFields = () => {
+    const isGuestBlockVisible = document.getElementById("блок_сам_или_семья").style.display !== "none";
+    const isKidsBlockVisible = document.getElementById("дети").style.display !== "none";
+
+    document.querySelectorAll('[name="тип_гостя"]').forEach(el => {
+        el.required = isGuestBlockVisible;
+    });
+
+    document.querySelectorAll('[name="ребёнок_имя"], [name="ребёнок_возраст"]').forEach(el => {
+        el.required = isKidsBlockVisible;
+    });
+};
+
 form.addEventListener("submit", (event) => {
+    toggleRequiredFields(); // <--- добавили перед отправкой
+
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbzI2r-K69GbpZHcGh9g3FeiT09eBb9jp4XlbupKSwKJgogmun7h47rawDadsPEgBjH7/exec";
+    const scriptURL = "https://script.google.com/macros/s/ВАШ_СЕРВИС_УРЛ/exec";
 
-   const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
-    document.querySelector(".js-form-date").value = dataTime;                                                    
+    const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
+    document.querySelector(".js-form-date").value = dataTime;
 
     fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((response) => {
@@ -54,7 +69,6 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbzI2r-K69GbpZHcGh9g3F
             console.error("Error!", error.message);
         });
 });
-
 // timer
 const targetDate = new Date("2025-09-14T12:30:00+02:00").getTime();
 const timerElement = document.querySelector(".date__timer");
