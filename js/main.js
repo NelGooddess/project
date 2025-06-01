@@ -48,7 +48,7 @@ form.addEventListener("submit", (event) => {
     loader.classList.add("active");
     document.body.classList.add("is-loader");
 
-    const scriptURL = "https://script.google.com/macros/s/ВАШ_СЕРВИС_УРЛ/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzI2r-K69GbpZHcGh9g3FeiT09eBb9jp4XlbupKSwKJgogmun7h47rawDadsPEgBjH7/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
