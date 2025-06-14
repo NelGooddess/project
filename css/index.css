@@ -795,7 +795,7 @@ body.is-loader {
 
 /* loader */
 .loader {
-  /* display: none; */
+  display: none;
   opacity: 0;
   visibility: hidden;
 
@@ -814,7 +814,7 @@ body.is-loader {
 }
 
 .loader.active {
-  /* display: block; */
+  display: block;
   opacity: 1;
   visibility: visible;
 }
@@ -841,7 +841,7 @@ body.is-loader {
   -ms-flex-align: center;
   align-items: center;
 }
-
+/* 
 .success {
   position: fixed;
   top: 50%;
@@ -865,13 +865,13 @@ body.is-loader {
   transition-duration: 300ms;
 }
 
-.success.active {
+ .success.active {
   -webkit-transform: translate(-50%, -50%) scale(1);
   -ms-transform: translate(-50%, -50%) scale(1);
   transform: translate(-50%, -50%) scale(1);
-}
+} 
 
-.success__title {
+/* .success__title {
   font-size: 4.6rem;
   font-family: 'Palatino';
   text-align: center;
@@ -886,7 +886,7 @@ body.is-loader {
   line-height: 1.4;
   color: #212121;
 }
-
+ */ 
 .title {
   text-align: center;
   /* Центрирование текста */
@@ -974,4 +974,28 @@ body.is-loader {
   border: 1px solid #ccc;
   cursor: pointer;
   z-index: 9999;
+}
+
+/* После отправки анкеты */
+.js-success {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FAF8F0;
+  padding: 20px 30px;
+  border: 2px solid #aaa;
+  border-radius: 12px;
+  font-size: 18px;
+  z-index: 9999;
+  color: #000;
+  text-align: center;
+}
+
+.js-success.active {
+  display: block;
+  opacity: 1;
 }

@@ -6,16 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480">
     <title>James & Svitlana</title>
-    <meta name="description"
-        content="Lieber Freund! Eine Hochzeit bedeutet Liebe und Aufrichtigkeit. An diesem besonderen Tag möchten wir von Menschen umgeben sein, 
+    <meta name="description" content="Lieber Freund! Eine Hochzeit bedeutet Liebe und Aufrichtigkeit. An diesem besonderen Tag möchten wir von Menschen umgeben sein, 
         die sich wirklich für uns freuen und mit uns feiern möchten. Wenn. Sie das Gefühl haben, dass Sie diesen Tag mit 
         uns verbringen möchten – kommen Sie gerne, wir würden uns sehr freuen, Sie dabei zu haben!">
-    <meta property="og:description"
-        content='Lieber Freund! Eine Hochzeit bedeutet Liebe und Aufrichtigkeit. An diesem besonderen Tag möchten wir von Menschen umgeben sein, 
+    <meta property="og:description" content='Lieber Freund! Eine Hochzeit bedeutet Liebe und Aufrichtigkeit. An diesem besonderen Tag möchten wir von Menschen umgeben sein, 
         die sich wirklich für uns freuen und mit uns feiern möchten. Wenn. Sie das Gefühl haben, dass Sie diesen Tag mit 
         uns verbringen möchten – kommen Sie gerne, wir würden uns sehr freuen, Sie dabei zu haben!'>
-        <meta property="og:image" content="https://james-svitlana.vercel.app/img/link.jpg"> <!-- Это ссылка для соц сетей, чтоб было фото-->
-        <meta property="og:image:width" content="1200">
+    <meta property="og:image" content="https://james-svitlana.vercel.app/img/link.jpg">
+    <!-- Это ссылка для соц сетей, чтоб было фото-->
+    <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
     <meta property="og:site_name" content="wedding.james&svitlana">
     <meta property="og:title" content='James & Svitlana'>
@@ -42,13 +41,13 @@
                 <div class="hero__block js-hero-block active">
                     <a href="index.html" class="text" style="text-decoration:none; position: fixed; top: 10px; z-index: 2; margin-left: 38rem; background: #FAF8F0;
                     padding: 10px 35px; border: 1px solid rgba(0, 0, 0, 0.452); margin-bottom: 2rem; 
-                    border-radius: 4px; color: rgb(0, 0, 0); cursor: pointer;">RUS</a> 
-                    
+                    border-radius: 4px; color: rgb(0, 0, 0); cursor: pointer;">RUS</a>
+
                     <h1 class="hero__title text">
-                      <!--   <div class="language-switch-wrapper" style="position: fixed; top: 10px; right: 10px;">
+                        <!--   <div class="language-switch-wrapper" style="position: fixed; top: 10px; right: 10px;">
                             <a href="index.html" class="language-switch" style="text-decoration:none; padding:5px 10px; border:1px solid #000; border-radius:4px;">RU</a>
                           </div> -->
-                        James &  <br> <span>Svitlana</span>
+                        James & <br> <span>Svitlana</span>
                     </h1>
                     <img src="img/hero-img.jpg" alt="" class="text">
                 </div>
@@ -73,8 +72,10 @@
                         <div class="decor__right"></div>
                     </div>
                     <p class="friend__text text">
-                        Eine Hochzeit bedeutet Liebe und Aufrichtigkeit. An diesem besonderen Tag möchten wir von Menschen umgeben sein, 
-                        die sich wirklich für uns freuen und mit uns feiern möchten. Wenn. Sie das Gefühl haben, dass Sie diesen Tag mit 
+                        Eine Hochzeit bedeutet Liebe und Aufrichtigkeit. An diesem besonderen Tag möchten wir von
+                        Menschen umgeben sein,
+                        die sich wirklich für uns freuen und mit uns feiern möchten. Wenn. Sie das Gefühl haben, dass
+                        Sie diesen Tag mit
                         uns verbringen möchten – kommen Sie gerne, wir würden uns sehr freuen, Sie dabei zu haben!
                     </p>
                     <div class="heart">
@@ -239,28 +240,12 @@
                     <p class="order__subtitle text">
                         Bitte bestätigen Sie Ihre Teilnahme an der Feier
                     </p>
-                   <!--  <form class="order__form js-form">
-                        <input type="text" class="order__input" name="имя" minlength="2" required
-                            placeholder="Имя и Фамилия">
-                        <input type="number" class="order__input" name="количество" min="0" max="30" required
-                            placeholder="Количество людей">
-                        <div class="order__be">
-                            <label class="order__label">
-                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
-                                <span>Я смогу прийти</span>
-                            </label>
-                            <label class="order__label">
-                                <input type="radio" class="order__radio" name="присутствие" id="false" value="нет">
-                                <span>Я не смогу прийти</span>
-                            </label>
-                        </div>
-                        <input type="hidden" name="дата" class="js-form-date">
-                        <button class="order__submit" type="submit">отправить</button>
-                    </form> SHIFT+ALT+A -->
                     <form class="order__form js-form">
-                        <input type="text" class="order__input" name="имя" minlength="2" required placeholder="Name und Nachname">
+                        <input type="text" class="order__input" name="имя" minlength="2" required
+                            placeholder="Name und Nachname">
                         <input type="email" class="order__input" name="email" required placeholder="Email">
-                        <input type="tel" class="order__input" name="phone" required placeholder="Telefonnummer" pattern="\+?\d{10,15}" >
+                        <input type="tel" class="order__input" name="phone" required placeholder="Telefonnummer"
+                            pattern="\+?\d{10,15}">
                         <input type="text" class="order__input" name="country" placeholder="Land" required>
                         <div class="order__be">
                             <label class="order__label">
@@ -272,42 +257,48 @@
                                 <span>Ich kann nicht kommen</span>
                             </label>
                         </div>
-                <div id="блок_сам_или_семья" style="display:none;">
-                        <div class="order__be">
-                            <label class="order__label">
-                                <input type="radio" class="order__radio" name="тип_гостя" value="сам" required>
-                                <span> Allein</span>
-                            </label>
-                            <label class="order__label">
-                                <input type="radio" class="order__radio" name="тип_гостя" value="семья">
-                                <span>Mit der Familie</span>
-                            </label>
-                        </div>
-                        <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
+                        <div id="блок_сам_или_семья" style="display:none;">
                             <div class="order__be">
-                            <label class="order__label">
-                                <input type="checkbox" class="order__checkbox" name="с_кем" value="супруг">
-                                <span>Ehepartner / Ehepartnerin</span>
-                             </label>
-                            <label class="order__label">
-                                <input type="checkbox" class="order__checkbox" id="детиЧек" name="с_кем" value="дети">
-                                <span>Kinder</span>
-                            </label>
-                        </div>
-                            <div id="дети" style="display:none; margin-top:10px;">
-                                <div class="ребёнок">
-                                    <input type="text" class="order__input" name="ребёнок_имя" placeholder="Name des Kindes" required>
-                                    <input type="number" class="order__input" name="ребёнок_возраст" placeholder="Alter" min="0" required>
+                                <label class="order__label">
+                                    <input type="radio" class="order__radio" name="тип_гостя" value="сам" required>
+                                    <span> Allein</span>
+                                </label>
+                                <label class="order__label">
+                                    <input type="radio" class="order__radio" name="тип_гостя" value="семья">
+                                    <span>Mit der Familie</span>
+                                </label>
+                            </div>
+                            <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
+                                <div class="order__be">
+                                    <label class="order__label">
+                                        <input type="checkbox" class="order__checkbox" name="с_кем" value="супруг">
+                                        <span>Ehepartner / Ehepartnerin</span>
+                                    </label>
+                                    <label class="order__label">
+                                        <input type="checkbox" class="order__checkbox" id="детиЧек" name="с_кем"
+                                            value="дети">
+                                        <span>Kinder</span>
+                                    </label>
                                 </div>
-                                <button type="button" class="order__buttt" id="добавитьРебёнка" style="margin-top:10px;">Kind hinzufügen</button>
+                                <div id="дети" style="display:none; margin-top:10px;">
+                                    <div class="ребёнок">
+                                        <input type="text" class="order__input" name="ребёнок_имя"
+                                            placeholder="Name des Kindes" required>
+                                        <input type="number" class="order__input" name="ребёнок_возраст"
+                                            placeholder="Alter" min="0" required>
+                                    </div>
+                                    <button type="button" class="order__buttt" id="добавитьРебёнка"
+                                        style="margin-top:10px;">Kind hinzufügen</button>
+                                </div>
                             </div>
                         </div>
-                </div>
                         <input type="hidden" name="дата" class="js-form-date">
                         <button class="order__submit" type="submit">senden</button>
                         <p style="font-size: 1.5rem; color: #555; margin-bottom: 3rem;">
-                           <b>*Bei Problemen mit dem Absenden des Formulars oder anderen Seitenstörungen schreiben Sie bitte an 
-                            <a href="https://t.me/newlifeN0" target="_blank" rel="noopener noreferrer">Nelli.  </b></a>
+                            <b>*Bei Problemen mit dem Absenden des Formulars oder anderen Seitenstörungen schreiben Sie
+                                bitte an
+                                <a href="https://t.me/newlifeN0" target="_blank" rel="noopener noreferrer">Nelli.
+                            </b></a>
                         </p>
                     </form>
                     <div class="heart">
@@ -319,21 +310,6 @@
             <section class="photo section">
                 <img src="img/img5.jpg" alt="" class="text">
             </section>
-
-            <!-- <section class="info section">
-                <div class="info__inner inner">
-                    <h2 class="info__title title">
-                        Дополнительная <br> информация
-                    </h2>
-                    <p class="info__text text">
-                        Если возникнут вопросы по поводу программы, участия- обращайся по номеру <br>
-                        <a href="tel:+4915750379683" class="info__phone">+4915750379683</a>
-                        <br>
-                        (Александр)
-                    </p>
-                </div>
-            </section> -->
-
             <section class="happy section">
                 <div class="happy__inner inner">
                     <h2 class="happy__title text">
@@ -365,101 +341,101 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-        const присутствиеRadios = document.querySelectorAll('input[name="присутствие"]');
-        const блокСамИлиСемья = document.getElementById('блок_сам_или_семья');
-    
-        const типГостяRadios = document.querySelectorAll('input[name="тип_гостя"]');
-        const семьяBlock = document.getElementById('семья');
-        const детиCheckbox = document.getElementById('детиЧек');
-        const детиBlock = document.getElementById('дети');
-        const добавитьРебёнкаBtn = document.getElementById('добавитьРебёнка');
-    
-        // Отслеживаем выбор "Приду?"
-        присутствиеRadios.forEach(radio => {
-          radio.addEventListener('change', () => {
-            if (radio.value === 'да' && radio.checked) {
-              блокСамИлиСемья.style.display = 'block';
-            } else {
-              блокСамИлиСемья.style.display = 'none';
-              // Сбросить выбор и скрыть вложенные блоки
-              resetТипГостяBlock();
-            }
-          });
-        });
-    
-        // Показывать/скрывать блок семья при выборе типа гостя
-        типГостяRadios.forEach(radio => {
-          radio.addEventListener('change', () => {
-            if (radio.value === 'семья' && radio.checked) {
-              семьяBlock.style.display = 'block';
-              updateChildrenRequired();
-            } else {
-              семьяBlock.style.display = 'none';
-              resetChildrenBlock();
-            }
-          });
-        });
-    
-        // Показывать/скрывать блок дети
-        детиCheckbox.addEventListener('change', () => {
-          if (детиCheckbox.checked) {
-            детиBlock.style.display = 'block';
-            updateChildrenRequired(true);
-          } else {
-            детиBlock.style.display = 'none';
-            updateChildrenRequired(false);
-          }
-        });
-    
-        // Добавить нового ребёнка
-        добавитьРебёнкаBtn.addEventListener('click', () => {
-          const ребёнокDiv = document.createElement('div');
-          ребёнокDiv.className = 'ребёнок';
-          ребёнокDiv.style.marginTop = '10px';
-          ребёнокDiv.innerHTML = `
+            const присутствиеRadios = document.querySelectorAll('input[name="присутствие"]');
+            const блокСамИлиСемья = document.getElementById('блок_сам_или_семья');
+
+            const типГостяRadios = document.querySelectorAll('input[name="тип_гостя"]');
+            const семьяBlock = document.getElementById('семья');
+            const детиCheckbox = document.getElementById('детиЧек');
+            const детиBlock = document.getElementById('дети');
+            const добавитьРебёнкаBtn = document.getElementById('добавитьРебёнка');
+
+            // Отслеживаем выбор "Приду?"
+            присутствиеRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'да' && radio.checked) {
+                        блокСамИлиСемья.style.display = 'block';
+                    } else {
+                        блокСамИлиСемья.style.display = 'none';
+                        // Сбросить выбор и скрыть вложенные блоки
+                        resetТипГостяBlock();
+                    }
+                });
+            });
+
+            // Показывать/скрывать блок семья при выборе типа гостя
+            типГостяRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'семья' && radio.checked) {
+                        семьяBlock.style.display = 'block';
+                        updateChildrenRequired();
+                    } else {
+                        семьяBlock.style.display = 'none';
+                        resetChildrenBlock();
+                    }
+                });
+            });
+
+            // Показывать/скрывать блок дети
+            детиCheckbox.addEventListener('change', () => {
+                if (детиCheckbox.checked) {
+                    детиBlock.style.display = 'block';
+                    updateChildrenRequired(true);
+                } else {
+                    детиBlock.style.display = 'none';
+                    updateChildrenRequired(false);
+                }
+            });
+
+            // Добавить нового ребёнка
+            добавитьРебёнкаBtn.addEventListener('click', () => {
+                const ребёнокDiv = document.createElement('div');
+                ребёнокDiv.className = 'ребёнок';
+                ребёнокDiv.style.marginTop = '10px';
+                ребёнокDiv.innerHTML = `
             <input type="text" class="order__input" name="ребёнок_имя" placeholder="Name des Kindes" required>
             <input type="number" class="order__input" name="ребёнок_возраст" placeholder="Alter" min="0" required>
             <button type="button" class="order__buttt" >Löschen</button>
           `;
-          детиBlock.appendChild(ребёнокDiv);
-    
-          ребёнокDiv.querySelector('.order__butее').addEventListener('click', () => {
-            ребёнокDiv.remove();
-          });
+                детиBlock.appendChild(ребёнокDiv);
+
+                ребёнокDiv.querySelector('.order__butее').addEventListener('click', () => {
+                    ребёнокDiv.remove();
+                });
+            });
+
+            function updateChildrenRequired(required = true) {
+                const inputs = детиBlock.querySelectorAll('input');
+                inputs.forEach(input => {
+                    if (required) {
+                        input.setAttribute('required', 'required');
+                    } else {
+                        input.removeAttribute('required');
+                    }
+                });
+            }
+
+            function resetChildrenBlock() {
+                семьяBlock.querySelectorAll('input[type=checkbox]').forEach(chk => chk.checked = false);
+                детиBlock.style.display = 'none';
+                updateChildrenRequired(false);
+
+                const дети = детиBlock.querySelectorAll('.ребёнок');
+                дети.forEach((ребёнок, index) => {
+                    if (index > 0) ребёнок.remove();
+                    else {
+                        ребёнок.querySelector('input[name="ребёнок_имя"]').value = '';
+                        ребёнок.querySelector('input[name="ребёнок_возраст"]').value = '';
+                    }
+                });
+            }
+
+            function resetТипГостяBlock() {
+                типГостяRadios.forEach(radio => radio.checked = false);
+                семьяBlock.style.display = 'none';
+                resetChildrenBlock();
+            }
         });
-    
-        function updateChildrenRequired(required = true) {
-          const inputs = детиBlock.querySelectorAll('input');
-          inputs.forEach(input => {
-            if (required) {
-              input.setAttribute('required', 'required');
-            } else {
-              input.removeAttribute('required');
-            }
-          });
-        }
-    
-        function resetChildrenBlock() {
-          семьяBlock.querySelectorAll('input[type=checkbox]').forEach(chk => chk.checked = false);
-          детиBlock.style.display = 'none';
-          updateChildrenRequired(false);
-    
-          const дети = детиBlock.querySelectorAll('.ребёнок');
-          дети.forEach((ребёнок, index) => {
-            if (index > 0) ребёнок.remove();
-            else {
-              ребёнок.querySelector('input[name="ребёнок_имя"]').value = '';
-              ребёнок.querySelector('input[name="ребёнок_возраст"]').value = '';
-            }
-          });
-        }
-    
-        function resetТипГостяBlock() {
-          типГостяRadios.forEach(radio => radio.checked = false);
-          семьяBlock.style.display = 'none';
-          resetChildrenBlock();
-        }
-      });
     </script>
 </body>
 

@@ -16,7 +16,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-// Инициализируйте анимацию
+// Инициализируйте анимацию ЛОМАЕТ фоточки
 //var anim = lottie.loadAnimation(animationData);
 
 // work with form
@@ -28,7 +28,7 @@ setInterval(() => {
     loader.classList.remove("active");
 }, 1100);
 
- const toggleRequiredFields = () => {
+const toggleRequiredFields = () => {
     const isGuestBlockVisible = document.getElementById("блок_сам_или_семья").style.display !== "none";
     const isKidsBlockVisible = document.getElementById("дети").style.display !== "none";
 
@@ -36,18 +36,14 @@ setInterval(() => {
         el.required = isGuestBlockVisible;
     });
 
-    document.querySelectorAll('[name="ребёнок_имя"], [name="ребёнок_возраст"]').forEach(el => {
-        el.required = isKidsBlockVisible;
-    });
 };
 
 form.addEventListener("submit", (event) => {
     toggleRequiredFields(); // <--- добавили перед отправкой
-
+    updateСКем(); //
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
-
     const scriptURL = "https://script.google.com/macros/s/AKfycbyDtQgzB_tdx5ziMG4EvPADiNph3Ee2NOD3kgbNa3sXESpjBVWRYl_gkni9L43HYXsCfg/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
@@ -69,6 +65,8 @@ form.addEventListener("submit", (event) => {
             console.error("Error!", error.message);
         });
 });
+
+
 // timer
 const targetDate = new Date("2025-09-14T12:30:00+02:00").getTime();
 const timerElement = document.querySelector(".date__timer");
@@ -96,14 +94,14 @@ function updateTimer() {
     timerElement.textContent = `${days.toString().padStart(2, "0")}:${hours
         .toString()
         .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds
-        .toString()
-        .padStart(2, "0")}`;
+            .toString()
+            .padStart(2, "0")}`;
 }
 
 const countdownInterval = setInterval(updateTimer, 1000);
 updateTimer();
 
-const isChrome = () => {
+/* const isChrome = () => {
     return (
         /Chrome/.test(navigator.userAgent) &&
         !/Edg/.test(navigator.userAgent) &&
@@ -125,47 +123,37 @@ const isTelegram = () => {
         /Telegram/.test(navigator.userAgent) ||
         /TELEGRAM/.test(navigator.userAgent)
     );
-};
+}; */
 
 // Выполняем код только в Chrome и Safari
-if (!isTelegram() && (isChrome() || isSafari())) {
-    const titles = document.querySelectorAll(".title");
 
-    // Настройки для IntersectionObserver
-    const options = {
-        root: null, // Используем окно браузера как контейнер
-        threshold: 0.1, // 10% заголовка должны быть видны, чтобы начать анимацию
-    };
+const titles = document.querySelectorAll(".title");
+const texts = document.querySelectorAll(".text");
 
-    // Функция анимации печатания текста
+if ("IntersectionObserver" in window) {
     const typeTextAnimation = (element) => {
-        const lines = element.innerHTML.split("<br>"); // Разделяем текст на строки по тегу <br>
-        element.innerHTML = ""; // Очищаем заголовок
+        const lines = element.innerHTML.split("<br>");
+        element.innerHTML = "";
 
-        // Добавляем строки обратно как элементы span
-        let totalDuration = 0; // Общая продолжительность анимации всех строк
+        let totalDuration = 0;
 
         lines.forEach((line, index) => {
-            const span = document.createElement("span"); // Создаем новый элемент строки
-            span.textContent = line.trim(); // Добавляем текст строки
-            element.appendChild(span); // Добавляем span в заголовок
+            const span = document.createElement("span");
+            span.textContent = line.trim();
+            element.appendChild(span);
 
-            const lineDuration = 0.6; // Длительность анимации печати каждой строки (в секундах)
-
+            const lineDuration = 0.6;
             // Анимация с использованием GSAP
             gsap.fromTo(
                 span,
-                { width: 0, opacity: 1 }, // Начальное состояние: ширина 0 и видимость
+                { width: 0, opacity: 1 },
                 {
-                    width: span.scrollWidth, // Конечная ширина - полная ширина текста
-                    duration: lineDuration, // Длительность анимации печати
-                    ease: "linear", // Линейная анимация
-                    delay: totalDuration, // Динамическая задержка для последовательного печатания
+                    width: span.scrollWidth,
+                    duration: lineDuration,
+                    ease: "linear",
+                    delay: totalDuration,
                     onStart: () => {
-                        // Удаляем мигающий курсор со всех строк
-                        element
-                            .querySelectorAll("span")
-                            .forEach((s) => s.classList.remove("blinking"));
+                        element.querySelectorAll("span").forEach((s) => s.classList.remove("blinking"));
                         // Добавляем мигающий курсор на текущую строку
                         span.classList.add("blinking");
                     },
@@ -178,12 +166,10 @@ if (!isTelegram() && (isChrome() || isSafari())) {
                 }
             );
 
-            // Обновляем общую продолжительность для следующей строки
             totalDuration += lineDuration;
         });
     };
 
-    // Инициализируем IntersectionObserver
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -192,42 +178,41 @@ if (!isTelegram() && (isChrome() || isSafari())) {
                 observer.unobserve(element); // Убираем наблюдателя после начала анимации
             }
         });
-    }, options);
+    }, {
+        root: null,     // Настройки для IntersectionObserver
+        threshold: 0.1, // 10% элемента должны быть видны, чтобы начать анимацию
+    });
 
-    // Наблюдаем за всеми заголовками
     titles.forEach((title) => {
         observer.observe(title);
     });
 
-    const texts = document.querySelectorAll(".text");
-
-    // Настройки для IntersectionObserver
-    const options2 = {
-        root: null, // Используем окно браузера как контейнер
-        threshold: 0.1, // 10% элемента должны быть видны, чтобы начать анимацию
-    };
-
-    // Функция для запуска анимации появления
-    const fadeInAnimation = (element) => {
-        element.classList.add("visible"); // Добавляем класс, который запускает анимацию
-    };
-
-    // Инициализируем IntersectionObserver
     const observer2 = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const element = entry.target;
-                fadeInAnimation(element); // Запускаем анимацию
-                observer2.unobserve(element); // Убираем наблюдателя после начала анимации
+                element.classList.add("visible");
+                observer2.unobserve(element);
             }
         });
-    }, options2);
+    }, {
+        root: null,
+        threshold: 0.1,
+    });
 
-    // Наблюдаем за всеми элементами с классом text
     texts.forEach((text) => {
         observer2.observe(text);
     });
+} else {
+    titles.forEach((el) => {
+        el.classList.add("visible");
+    });
+    // Наблюдаем за всеми элементами с классом text
+    texts.forEach((el) => {
+        el.classList.add("visible");
+    });
 }
+
 
 var swiper = new Swiper(".swiper", {
     navigation: {
@@ -235,4 +220,3 @@ var swiper = new Swiper(".swiper", {
         prevEl: ".swiper-button-prev",
     },
 });
- 
