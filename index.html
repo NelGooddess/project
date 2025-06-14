@@ -39,9 +39,10 @@
         <main>
             <section class="hero">
                 <div class="hero__block js-hero-block active">
-                    <a href="index-de.html" class="text" style="text-decoration:none; position: fixed; top: 10px; z-index: 2;  margin-left: 38rem; background: #FAF8F0;
+                  <!--   <a href="index-de.html" class="text" style="text-decoration:none; position: fixed; top: 10px; z-index: 2;  margin-left: 38rem; background: #FAF8F0;
                     padding: 10px 39px; border: 1px solid rgba(0, 0, 0, 0.452);  margin-bottom: 2rem; 
-                    border-radius: 4px; color: rgb(0, 0, 0); cursor: pointer;">DE</a>
+                    border-radius: 4px; color: rgb(0, 0, 0); cursor: pointer;">DE</a> -->
+                    <a href="index-de.html" class="lang-button">DE</a>
 
                     <h1 class="hero__title text">
                         James & <br> <span>Svitlana</span>
@@ -203,7 +204,7 @@
                         <img src="img/heart-big.svg" alt="" width="70" height="73">
                     </div>
                 </div>
-            </section>  -->
+            </section> -->
 
             <section class="photo section">
                 <img src="img/img4.jpg" alt="" class="text">
@@ -236,12 +237,36 @@
                     <p class="order__subtitle text">
                         Подтвердите, пожалуйста, свое участие в торжестве
                     </p>
-                    <!--  SHIFT+ALT+A -->
+                    <!--  <form class="order__form js-form">
+                        <input type="text" class="order__input" name="имя" minlength="2" required
+                            placeholder="Имя и Фамилия">
+                        <input type="number" class="order__input" name="количество" min="0" max="30" required
+                            placeholder="Количество людей">
+                        <div class="order__be">
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
+                                <span>Я смогу прийти</span>
+                            </label>
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="false" value="нет">
+                                <span>Я не смогу прийти</span>
+                            </label>
+                        </div>
+                        <input type="hidden" name="дата" class="js-form-date">
+                        <button class="order__submit" type="submit">отправить</button>
+                    
+<div class="form__group" id="дети_блок">
+    <label for="дети_ввод" class="form__label">Имена и возраст детей (если есть):</label>
+    <textarea name="дети_ввод" class="order__input" rows="3" placeholder="Например: Мария (5 лет), Игорь (7), Лиза (3)"></textarea>
+</div>
+
+</form> SHIFT+ALT+A -->
                     <form class="order__form js-form">
-                        <input type="text" class="order__input" name="имя" minlength="2" required placeholder="Имя и Фамилия">
+                        <input type="text" class="order__input" name="имя" required placeholder="Имя и Фамилия"
+                            oninput="this.setCustomValidity(this.value.trim().split(' ').length < 2 ? 'Введи пожалуйста ваше имя и фамилию' : '')">
                         <input type="email" class="order__input" name="email" required placeholder="Email">
                         <input type="tel" class="order__input" name="phone" required placeholder="Номер телефона"
-                            pattern="\+?\d{10,15}">
+                            pattern="^\+?(\d+\s?)+$">
                         <input type="text" class="order__input" name="country" placeholder="Страна" required>
 
                         <div class="order__be">
@@ -270,30 +295,56 @@
                             <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
                                 <div class="order__be">
                                     <label class="order__label">
-                                        <input type="checkbox" class="order__checkbox" value="супруг">
+                                        <input type="checkbox" class="order__checkbox" id="супругЧек" 
+                                            value="супруг">
                                         <span>Супруг / Супруга</span>
                                     </label>
+
+                                    <div id="супруг" style="display:none; margin-top:10px;">
+                                        <div class="form__group">
+                                            <input type="text" name="супруг_имя" class="order__input" id="супругИмя"
+                                                placeholder="Имя супруга/супруги">
+                                        </div>
+                                    </div>
+
                                     <label class="order__label">
-                                        <input type="checkbox" class="order__checkbox" id="детиЧек" value="дети">
+                                        <input type="checkbox" class="order__checkbox" id="детиЧек" 
+                                            value="дети">
                                         <span>Дети</span>
                                     </label>
-                                    <!-- Это скрытое поле, которое будет отправлено -->
-                                    <input type="hidden" name="с_кем" id="сКемInput">
                                 </div>
+
                                 <div id="дети" style="display:none; margin-top:10px;">
-                                    <div class="ребёнок">
-                                            <input type="text" name="дети_ввод" class="order__input" placeholder="Например: Мария 5 лет, Игорь 7 лет">
+                                    <div class="form__group" id="дети_блок">
+                                        <textarea name="дети_ввод" class="order__input" rows="3"
+                                            placeholder="Например: Мария (5 лет), Игорь (7), Лиза (3)"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Перенесено ВНЕ #блок_сам_или_семья -->
                         <input type="hidden" name="дата" class="js-form-date">
+                        <input type="hidden" name="с_кем" id="сКемInput">
+
                         <button class="order__submit" type="submit">отправить</button>
-                        <p style="font-size: 1.5rem; color: #555; margin-bottom: 3rem;">
-                            *При проблеме с отправлением анкеты или других неполадок страницы, писать
-                            <a href="https://t.me/newlifeN0" target="_blank" rel="noopener noreferrer">Nelli.</a>
-                        </p>
+                          <p style="font-size: 1.5rem; color: rgb(34, 34, 34); margin-bottom: 2rem;">
+                            *При проблеме с отправлением анкеты или других неполадок страницы, писать Нелли:
+                          </p>
+                          <div style="display: flex; gap: 20px; align-items: center; justify-content: flex-start; flex-wrap: wrap; font-size: 1.5rem; margin-bottom: 2rem;">
+                            <a href="https://t.me/newlifeN0" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #007bff;">
+                              <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="20" height="20">
+                              Telegram
+                            </a>
+                            <a href="https://wa.me/420728182115" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #25D366;">
+                              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20" height="20">
+                              WhatsApp
+                            </a>
+                          </div>
+                          
+                          
                     </form>
+
 
                     <div class="heart">
                         <img src="img/heart-big1.svg" alt="" width="70" height="73">
@@ -304,6 +355,20 @@
             <section class="photo section">
                 <img src="img/img5.jpg" alt="" class="text">
             </section>
+
+            <!-- <section class="info section">
+                <div class="info__inner inner">
+                    <h2 class="info__title title">
+                        Дополнительная <br> информация
+                    </h2>
+                    <p class="info__text text">
+                        Если возникнут вопросы по поводу программы, участия- обращайся по номеру <br>
+                        <a href="tel:+4915750379683" class="info__phone">+4915750379683</a>
+                        <br>
+                        (Александр)
+                    </p>
+                </div>
+            </section> -->
 
             <section class="happy section">
                 <div class="happy__inner inner">
@@ -318,15 +383,15 @@
 
             <div class="loader js-loader">
                 <div id="lottie-container" class="loader__container"></div>
-            </div> 
+            </div>
 
-             <div class="success js-success">
+            <div class="success js-success">
                 <h2 class="success__title">Благодарим</h2>
                 <p class="success__text">С нетерпением ждем вас!</p>
                 <div class="heart">
                     <img src="img/heart-big1.svg" alt="" width="70" height="73">
                 </div>
-            </div> 
+            </div>
         </main>
     </div>
 
@@ -334,6 +399,9 @@
     <script defer src="js/swiper-bundle.min.js"></script>
     <script defer src="js/main.js"></script>
     <script defer src="js/form.js"></script>
+    <div class="js-success success-message">
+        Ваша анкета отправлена! В скором времени вы получите подтверждение на свадьбу 💌
+    </div>
 
 </body>
 

@@ -999,3 +999,44 @@ body.is-loader {
   display: block;
   opacity: 1;
 }
+
+
+textarea.order__input {
+  resize: vertical; /* или "none", если вообще нельзя */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+
+.lang-button {
+  text-decoration:none; 
+  position: fixed; 
+  top: 10px; 
+  z-index: 2; 
+  margin-left: 38rem; 
+  background: #FAF8F0;
+  padding: 10px 39px; 
+  border: 1px solid rgba(0, 0, 0, 0.452); 
+  margin-bottom: 2rem; 
+  border-radius: 4px; 
+  color: rgb(0, 0, 0); 
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.lang-button:hover {
+  background-color: #e0e0e0; /* светло-серый фон */
+  color: #000;
+  cursor: pointer;
+}
+
+.lang-button:active {
+  background-color: #d0d0d0; /* чуть темнее при клике */
+}
+

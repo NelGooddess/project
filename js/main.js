@@ -37,6 +37,22 @@ const toggleRequiredFields = () => {
     });
 
 };
+function resetFormState() {
+    document.getElementById("блок_сам_или_семья").style.display = "none";
+    document.getElementById("семья").style.display = "none";
+    document.getElementById("супруг").style.display = "none";
+    document.getElementById("дети").style.display = "none";
+
+    // Сброс всех радиокнопок и чекбоксов (на всякий случай)
+    document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+        input.checked = false;
+    });
+
+    // Очистка текстового поля детей
+    const детиTextarea = document.querySelector('textarea[name="дети_ввод"]');
+    if (детиTextarea) детиTextarea.value = "";
+}
+
 
 form.addEventListener("submit", (event) => {
     toggleRequiredFields(); // <--- добавили перед отправкой
@@ -44,7 +60,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxZ__WRWidFLdC7hDMariypIm57-3MEjhU0AY4ZFUvk3L5U6o-o_Cc9YBkG6v8s5X4t/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyfdnDNCR5ZNneCuPrNOCIYJMrMtbT3BuF1BY9-XRQff7_22dQGdnqqleTfgOWtoLU1bw/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
@@ -59,7 +75,8 @@ form.addEventListener("submit", (event) => {
             setTimeout(() => {
                 success.classList.remove("active");
             }, 3500);
-            form.reset();
+            form.reset();          // очищаем значения
+            resetFormState();      // сбрасываем внешний вид формы
         })
         .catch((error) => {
             console.error("Error!", error.message);

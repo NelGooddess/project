@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const детиCheckbox = document.getElementById('детиЧек');
   const супругCheckbox = document.getElementById('супругЧек');
   const детиBlock = document.getElementById('дети');
-  const детиTextarea = document.querySelector('input[name="дети_ввод"]');
+  const детиTextarea = document.querySelector('textarea[name="дети_ввод"]');
+  const супругBlock = document.getElementById('супруг');
+  const супругInput = document.getElementById('супругИмя');
 
   // Обработка выбора "Приду?"
   присутствиеRadios.forEach(radio => {
@@ -26,26 +28,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (radio.value === 'семья' && radio.checked) {
         семьяBlock.style.display = 'block';
         updateChildrenVisibility();
+        updateSpouseVisibility();
         updateСКем();
       } else {
         семьяBlock.style.display = 'none';
-        resetChildrenBlock();
+        resetFamilyBlock();
         updateСКем();
       }
     });
   });
 
-  // Обработка чекбоксов супруг / дети
+  // Обработка чекбоксов
   детиCheckbox.addEventListener('change', () => {
     updateChildrenVisibility();
     updateСКем();
   });
 
   супругCheckbox.addEventListener('change', () => {
+    updateSpouseVisibility();
     updateСКем();
   });
 
-  // Показать или скрыть блок ввода детей
   function updateChildrenVisibility() {
     if (детиCheckbox.checked) {
       детиBlock.style.display = 'block';
@@ -59,17 +62,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function resetChildrenBlock() {
+/*   function updateSpouseVisibility() {
+    if (супругCheckbox.checked) {
+      супругBlock.style.display = 'block';
+      супругInput.removeAttribute('disabled');
+      супругInput.removeAttribute('required'); // можно включить при необходимости
+    } else {
+      супругBlock.style.display = 'none';
+      супругInput.setAttribute('disabled', 'disabled');
+      супругInput.value = '';
+    }
+  } */
+
+  function updateSpouseVisibility() {
+    if (супругCheckbox.checked) {
+      супругBlock.style.display = 'block';
+      супругInput.removeAttribute('readonly');
+    } else {
+      супругBlock.style.display = 'none';
+      супругInput.value = '';
+      супругInput.setAttribute('readonly', 'readonly'); // визуально отключить, но оставить в форме
+    }
+  }
+  
+  function resetFamilyBlock() {
     детиCheckbox.checked = false;
     супругCheckbox.checked = false;
     updateChildrenVisibility();
-    updateСКем();
+    updateSpouseVisibility();
   }
 
   function resetТипГостяBlock() {
     типГостяRadios.forEach(radio => radio.checked = false);
     семьяBlock.style.display = 'none';
-    resetChildrenBlock();
+    resetFamilyBlock();
   }
 });
 
@@ -79,14 +105,13 @@ function updateСКем() {
   const детиЧек = document.getElementById("детиЧек");
   const сКемInput = document.getElementById("сКемInput");
 
-  const части = [];
-
-  if (супругЧек && супругЧек.checked) {
-    части.push("супруг");
+  if (супругЧек.checked && детиЧек.checked) {
+    сКемInput.value = "семья полная";
+  } else if (супругЧек.checked) {
+    сКемInput.value = "супруг";
+  } else if (детиЧек.checked) {
+    сКемInput.value = "дети";
+  } else {
+    сКемInput.value = "";
   }
-  if (детиЧек && детиЧек.checked) {
-    части.push("дети");
   }
-
-  сКемInput.value = части.join("+"); // например: супруг+дети
-}
