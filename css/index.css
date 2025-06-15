@@ -213,15 +213,15 @@ body.is-loader {
   padding: 0 2.4rem;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 17rem;
+  bottom: 7rem;
   text-align: center;
   color: #FFFFFF;
   z-index: 2;
   /* font-family: "Marck Script", cursive; */
   /* font-family: 'Lato', sans-serif; */
   font-family: 'Palatino';
-  font-weight: 200;
-  font-size: 4.5rem;
+  font-weight: 150;
+  font-size: 3.5rem;
   text-shadow: 1px 1px 5px black;
 
 }
@@ -252,7 +252,7 @@ body.is-loader {
   /* font-family: "Great Vibes", cursive; */
   font-family: "Lato", sans-serif;
   padding-top: 5rem;
-  font-size: 9.5rem;
+  font-size: 7rem;
   line-height: 1.1;
   letter-spacing: 0.4rem;
   font-weight: 300;
@@ -263,7 +263,7 @@ body.is-loader {
 }
 
 .hero__title span {
-  margin-left: 10rem;
+  margin-left: 19rem;
 }
 
 .hero__title b {
@@ -776,7 +776,6 @@ body.is-loader {
 }
 
 .happy__inner {
-  padding-bottom: 8rem;
   border-bottom-left-radius: 4rem;
   border-bottom-right-radius: 4rem;
 }
