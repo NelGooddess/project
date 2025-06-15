@@ -39,7 +39,7 @@
         <main>
             <section class="hero">
                 <div class="hero__block js-hero-block active">
-                    <a href="index.html" class="lang-button" style="padding: 10px 35px;" >RUS</a>
+                    <a href="index.html" class="lang-button" style="padding: 10px 35px;">RUS</a>
 
                     <h1 class="hero__title text">
                         <!--   <div class="language-switch-wrapper" style="position: fixed; top: 10px; right: 10px;">
@@ -239,65 +239,70 @@
                         Bitte bestätigen Sie Ihre Teilnahme an der Feier
                     </p>
                     <form class="order__form js-form">
-                        <input type="text" class="order__input" name="имя" minlength="2" required
-                            placeholder="Name und Nachname">
+                        <input type="text" class="order__input" name="имя" required placeholder="Name und Nachname"
+                            oninput="this.setCustomValidity(this.value.trim().split(' ').length < 2 ? 'Bitte geben Sie Vor- und Nachname ein' : '')">
                         <input type="email" class="order__input" name="email" required placeholder="Email">
                         <input type="tel" class="order__input" name="phone" required placeholder="Telefonnummer"
-                            pattern="\+?\d{10,15}">
+                            pattern="^\+?(\d+\s?)+$">
                         <input type="text" class="order__input" name="country" placeholder="Land" required>
+
                         <div class="order__be">
                             <label class="order__label">
-                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
+                                <input type="radio" class="order__radio" name="присутствие" value="да">
                                 <span>Ich kann kommen</span>
                             </label>
                             <label class="order__label">
-                                <input type="radio" class="order__radio" name="присутствие" id="false" value="нет">
+                                <input type="radio" class="order__radio" name="присутствие" value="нет">
                                 <span>Ich kann nicht kommen</span>
                             </label>
                         </div>
+
                         <div id="блок_сам_или_семья" style="display:none;">
                             <div class="order__be">
                                 <label class="order__label">
-                                    <input type="radio" class="order__radio" name="тип_гостя" value="сам" required>
-                                    <span> Allein</span>
+                                    <input type="radio" class="order__radio" name="тип_гостя" value="сам">
+                                    <span>Allein</span>
                                 </label>
                                 <label class="order__label">
                                     <input type="radio" class="order__radio" name="тип_гостя" value="семья">
-                                    <span>Mit der Familie</span>
+                                    <span>Mit Familie</span>
                                 </label>
                             </div>
+
                             <div id="семья" style="display:none; margin-top:10px; padding-bottom: 10px;">
                                 <div class="order__be">
                                     <label class="order__label">
-                                        <input type="checkbox" class="order__checkbox" name="с_кем" value="супруг">
-                                        <span>Ehepartner / Ehepartnerin</span>
+                                        <input type="checkbox" class="order__checkbox" id="супругЧек" value="супруг">
+                                        <span>Ehepartner</span>
                                     </label>
+
+                                    <div id="супруг" style="display:none; margin-top:10px;">
+                                        <div class="form__group">
+                                            <input type="text" name="супруг_имя" class="order__input" id="супругИмя"
+                                                placeholder="Name des Ehepartners">
+                                        </div>
+                                    </div>
+
                                     <label class="order__label">
-                                        <input type="checkbox" class="order__checkbox" id="детиЧек" name="с_кем"
-                                            value="дети">
+                                        <input type="checkbox" class="order__checkbox" id="детиЧек" value="дети">
                                         <span>Kinder</span>
                                     </label>
                                 </div>
+
                                 <div id="дети" style="display:none; margin-top:10px;">
-                                    <div class="ребёнок">
-                                        <input type="text" class="order__input" name="ребёнок_имя"
-                                            placeholder="Name des Kindes" required>
-                                        <input type="number" class="order__input" name="ребёнок_возраст"
-                                            placeholder="Alter" min="0" required>
+                                    <div class="form__group" id="дети_блок">
+                                        <textarea name="дети_ввод" class="order__input" rows="3"
+                                            placeholder="Geben Sie den Namen und das Alter des Kindes ein. Zum Beispiel: Maria 5, Igor 7"></textarea>
                                     </div>
-                                    <button type="button" class="order__buttt" id="добавитьРебёнка"
-                                        style="margin-top:10px;">Kind hinzufügen</button>
                                 </div>
                             </div>
                         </div>
+
                         <input type="hidden" name="дата" class="js-form-date">
+                        <input type="hidden" name="с_кем" id="сКемInput">
+                        <input type="hidden" name="lang" value="de">
+
                         <button class="order__submit" type="submit">senden</button>
-                        <p style="font-size: 1.5rem; color: #555; margin-bottom: 3rem;">
-                            <b>*Bei Problemen mit dem Absenden des Formulars oder anderen Seitenstörungen schreiben Sie
-                                bitte an
-                                <a href="https://t.me/newlifeN0" target="_blank" rel="noopener noreferrer">Nelli.
-                            </b></a>
-                        </p>
                     </form>
                     <div class="heart">
                         <img src="img/heart-big1.svg" alt="" width="70" height="73">
@@ -324,20 +329,142 @@
             </div>
 
             <div class="success js-success">
-                <h2 class="success__title">Vielen Dank</h2>
-                <p class="success__text">Wir freuen uns sehr auf euch!</p>
+                <button class="success__close" aria-label="Benachrichtigung schließen">×</button>
+                <h2 class="success__title">💌 Vielen Dank für Ihre Anmeldung!</h2>
+                <p class="success__text_n">Wir werden uns bald per E-Mail bei Ihnen melden, um Ihre Teilnahme an der Hochzeit zu bestätigen.</p>
+                <p class="success__text">Wir freuen uns schon auf das Treffen!</p>
                 <div class="heart">
-                    <img src="img/heart-big1.svg" alt="" width="70" height="73">
+                  <img src="img/heart-big1.svg" alt="" width="70" height="73">
                 </div>
-            </div>
+              </div>
+              
         </main>
     </div>
 
     <script defer src="js/jquery.min.js"></script>
     <script defer src="js/swiper-bundle.min.js"></script>
     <script defer src="js/main.js"></script>
-
     <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const присутствиеRadios = document.querySelectorAll('input[name="присутствие"]');
+            const типГостяRadios = document.querySelectorAll('input[name="тип_гостя"]');
+            const блокСамИлиСемья = document.getElementById('блок_сам_или_семья');
+            const семьяBlock = document.getElementById('семья');
+            const детиCheckbox = document.getElementById('детиЧек');
+            const супругCheckbox = document.getElementById('супругЧек');
+            const детиBlock = document.getElementById('дети');
+            const детиTextarea = document.querySelector('textarea[name="дети_ввод"]');
+            const супругBlock = document.getElementById('супруг');
+            const супругInput = document.getElementById('супругИмя');
+
+            // Обработка выбора "Приду?"
+            присутствиеRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'да' && radio.checked) {
+                        блокСамИлиСемья.style.display = 'block';
+                    } else {
+                        блокСамИлиСемья.style.display = 'none';
+                        resetТипГостяBlock();
+                    }
+                });
+            });
+
+            // Обработка выбора "тип гостя"
+            типГостяRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'семья' && radio.checked) {
+                        семьяBlock.style.display = 'block';
+                        updateChildrenVisibility();
+                        updateSpouseVisibility();
+                        updateСКем();
+                    } else {
+                        семьяBlock.style.display = 'none';
+                        resetFamilyBlock();
+                        updateСКем();
+                    }
+                });
+            });
+
+            // Обработка чекбоксов
+            детиCheckbox.addEventListener('change', () => {
+                updateChildrenVisibility();
+                updateСКем();
+            });
+
+            супругCheckbox.addEventListener('change', () => {
+                updateSpouseVisibility();
+                updateСКем();
+            });
+
+            function updateChildrenVisibility() {
+                if (детиCheckbox.checked) {
+                    детиBlock.style.display = 'block';
+                    детиTextarea.removeAttribute('disabled');
+                    детиTextarea.setAttribute('required', 'required');
+                } else {
+                    детиBlock.style.display = 'none';
+                    детиTextarea.setAttribute('disabled', 'disabled');
+                    детиTextarea.removeAttribute('required');
+                    детиTextarea.value = '';
+                }
+            }
+
+            /*   function updateSpouseVisibility() {
+                if (супругCheckbox.checked) {
+                  супругBlock.style.display = 'block';
+                  супругInput.removeAttribute('disabled');
+                  супругInput.removeAttribute('required'); // можно включить при необходимости
+                } else {
+                  супругBlock.style.display = 'none';
+                  супругInput.setAttribute('disabled', 'disabled');
+                  супругInput.value = '';
+                }
+              } */
+
+            function updateSpouseVisibility() {
+                if (супругCheckbox.checked) {
+                    супругBlock.style.display = 'block';
+                    супругInput.removeAttribute('readonly');
+                } else {
+                    супругBlock.style.display = 'none';
+                    супругInput.value = '';
+                    супругInput.setAttribute('readonly', 'readonly'); // визуально отключить, но оставить в форме
+                }
+            }
+
+            function resetFamilyBlock() {
+                детиCheckbox.checked = false;
+                супругCheckbox.checked = false;
+                updateChildrenVisibility();
+                updateSpouseVisibility();
+            }
+
+            function resetТипГостяBlock() {
+                типГостяRadios.forEach(radio => radio.checked = false);
+                семьяBlock.style.display = 'none';
+                resetFamilyBlock();
+            }
+        });
+
+        // Функция формирования поля "с_кем"
+        function updateСКем() {
+            const супругЧек = document.getElementById("супругЧек");
+            const детиЧек = document.getElementById("детиЧек");
+            const сКемInput = document.getElementById("сКемInput");
+
+            if (супругЧек.checked && детиЧек.checked) {
+                сКемInput.value = "семья полная";
+            } else if (супругЧек.checked) {
+                сКемInput.value = "супруг";
+            } else if (детиЧек.checked) {
+                сКемInput.value = "дети";
+            } else {
+                сКемInput.value = "";
+            }
+        }
+    </script>
+    <!--  <script>
         document.addEventListener('DOMContentLoaded', () => {
             const присутствиеRadios = document.querySelectorAll('input[name="присутствие"]');
             const блокСамИлиСемья = document.getElementById('блок_сам_или_семья');
@@ -434,7 +561,7 @@
                 resetChildrenBlock();
             }
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

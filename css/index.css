@@ -887,6 +887,74 @@ body.is-loader {
   color: #212121;
 }
  */ 
+
+
+/* После отправки анкеты окно уведомление */
+.js-success {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translate(-50%, -50%) scale(0.95);
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  width: 95%;
+  max-width: 400px;
+  background: #fff9f3;
+  padding: 30px 24px;
+  border: 2px solid #e6d8c7;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 9999;
+}
+
+.js-success.active {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.success__title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.success__text_n {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 15px;
+}
+.success__text {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.js-success .heart {
+  margin-top: 20px; /* ← регулируй по желанию */
+}
+.success__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: rgb(56, 56, 56);
+  transition: color 0.3s ease;
+}
+
+.success__close:hover {
+  color: #000;
+}
+
+
+
 .title {
   text-align: center;
   /* Центрирование текста */
@@ -976,30 +1044,6 @@ body.is-loader {
   z-index: 9999;
 }
 
-/* После отправки анкеты */
-.js-success {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #FAF8F0;
-  padding: 20px 30px;
-  border: 2px solid #aaa;
-  border-radius: 12px;
-  font-size: 18px;
-  z-index: 9999;
-  color: #000;
-  text-align: center;
-}
-
-.js-success.active {
-  display: block;
-  opacity: 1;
-}
-
 
 textarea.order__input {
   resize: vertical; /* или "none", если вообще нельзя */
@@ -1039,4 +1083,30 @@ textarea.order__input {
 .lang-button:active {
   background-color: #d0d0d0; /* чуть темнее при клике */
 }
+ /* 
+@media (max-width: 480px) {
+  .js-success {
+    padding: 20px 16px;
+    font-size: 16px;
+  }
 
+  .success__title {
+    font-size: 20px;
+  }
+
+  .success__text {
+    font-size: 15px;
+  }
+
+  .success__close {
+    top: 6px;
+    right: 8px;
+    font-size: 20px;
+  }
+
+  .js-success img {
+    width: 50px;
+    height: auto;
+  }
+}
+ */

@@ -23,6 +23,16 @@ window.addEventListener("scroll", () => {
 const form = document.querySelector(".js-form");
 const loader = document.querySelector(".js-loader");
 const success = document.querySelector(".js-success");
+const closeBtn = document.querySelector(".success__close");
+
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    success.classList.remove("active");
+
+    form.reset();          // очищаем данные формы
+    resetFormState();      // скрываем блоки, сбрасываем галки и визуал
+  });
+}
 
 setInterval(() => {
     loader.classList.remove("active");
@@ -60,23 +70,23 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyfdnDNCR5ZNneCuPrNOCIYJMrMtbT3BuF1BY9-XRQff7_22dQGdnqqleTfgOWtoLU1bw/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwWP31EcUs6phLiRcJ8o2iMmENZ0bS_iKctt25Zc9lyeXRrlluKsxSavbJrVgWJoLUzdQ/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
+
 
     fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((response) => {
             console.log("Success!", response);
             loader.classList.remove("active");
-            success.classList.add("active");
+            success.classList.add("active");    
             document.body.classList.remove("is-loader");
-
-            setTimeout(() => {
+          /*   setTimeout(() => {
                 success.classList.remove("active");
             }, 3500);
             form.reset();          // очищаем значения
-            resetFormState();      // сбрасываем внешний вид формы
+            resetFormState();      // сбрасываем внешний вид формы  Закрытие окна автоматически после 3.5 сек*/
         })
         .catch((error) => {
             console.error("Error!", error.message);
