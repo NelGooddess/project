@@ -1,0 +1,47 @@
+
+
+    /* Предотвращение повторной регистрации по email  */
+    /*    const existingEmails = sheet.getRange(2, 5, sheet.getLastRow() - 1, 1).getValues().flat();
+       if (existingEmails.includes(data["email"])) {
+         return ContentService.createTextOutput("DUPLICATE")
+           .setMimeType(ContentService.MimeType.TEXT)
+           .setHeader("Access-Control-Allow-Origin", "*");
+       } */
+
+
+    const guestType = translate("тип_гостя", data["тип_гостя"]);
+    
+       /* Создание PDF
+     const pdfDoc = DocumentApp.create(`Анкета ${nextID}`);
+    const body = pdfDoc.getBody();
+
+    if (lang === "de") {
+      body.appendParagraph("📄 Anmeldebestätigung").setHeading(DocumentApp.ParagraphHeading.HEADING1);
+      body.appendParagraph(`ID: ${nextID}`);
+      body.appendParagraph(`Vorname: ${firstName}`);
+      body.appendParagraph(`Nachname: ${lastName}`);
+      body.appendParagraph(`E-Mail: ${data["email"]}`);
+      body.appendParagraph(`Telefonnummer: ${data["phone"]}`);
+      body.appendParagraph(`Land: ${data["country"]}`);
+      body.appendParagraph(`Gasttyp: ${guestType}`);
+      if (data["супруг_имя"]) body.appendParagraph(`Ehepartner: ${data["супруг_имя"]}`);
+      if (data["дети_ввод"]) body.appendParagraph(`Kinder: ${data["дети_ввод"]}`);
+      body.appendParagraph(`Gesamtanzahl Personen: ${guestCount}`);
+      body.appendParagraph(`Sendedatum: ${data["дата"]}`);
+    } else {
+      body.appendParagraph("📄 Подтверждение анкеты").setHeading(DocumentApp.ParagraphHeading.HEADING1);
+      body.appendParagraph(`ID: ${nextID}`);
+      body.appendParagraph(`Имя: ${firstName}`);
+      body.appendParagraph(`Фамилия: ${lastName}`);
+      body.appendParagraph(`Email: ${data["email"]}`);
+      body.appendParagraph(`Телефон: ${data["phone"]}`);
+      body.appendParagraph(`Страна: ${data["country"]}`);
+      body.appendParagraph(`Тип гостя: ${guestType}`);
+      if (data["супруг_имя"]) body.appendParagraph(`Супруг: ${data["супруг_имя"]}`);
+      if (data["дети_ввод"]) body.appendParagraph(`Дети: ${data["дети_ввод"]}`);
+      body.appendParagraph(`Гостей всего: ${guestCount}`);
+      body.appendParagraph(`Дата отправки: ${data["дата"]}`);
+    }
+
+    pdfDoc.saveAndClose();
+    const pdfFile = pdfDoc.getAs(MimeType.PDF); */

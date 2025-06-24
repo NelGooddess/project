@@ -247,3 +247,27 @@ var swiper = new Swiper(".swiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+
+
+
+
+       <p>Здравствуйте, <strong>${fullName}</strong>!</p>
+      <p>Спасибо за вашу анкету! Мы свяжемся с вами и подтвердим участие в свадьбе.</p>
+      <hr>
+        <p><strong>Ваши данные:</strong></p>
+      <ul>
+        <li><strong>Имя и Фамилия:</strong> ${fullName}</li>
+        <li><strong>E-mail:</strong> ${data["email"]}</li>
+        <li><strong>Телефон:</strong> ${data["phone"]}</li>
+        <li><strong>Страна:</strong> ${data["country"]}</li>
+        ${data["супруг_имя"] ? `<li><strong>Супруг:</strong> ${data["супруг_имя"]}</li>` : ""}
+        ${data["дети_ввод"] ? `<li><strong>Дети:</strong> ${data["дети_ввод"]}</li>` : ""}
+        <li><strong>Всего гостей:</strong> ${guestCount}</li>
+      </ul>
+      <p>Хотите что-то изменить? Просто напишите нам:</p>
+      <a href="mailto:james.svitlana14.09.2025@gmail.com"
+      style="background: #FAF8F0; color: black; padding: 10px 10px; border-radius: 5px; text-decoration: none; border: 1px solid black;">
+      Написать </a>
+      <p>С любовью,<br>Джеймс и Светлана 💕<br><br></p>
+      <div style="display:none; white-space:nowrap; font-size:0;">` 

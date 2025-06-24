@@ -240,10 +240,10 @@
                         Bitte bestätigen Sie Ihre Teilnahme an der Feier
                     </p>
                     <form class="order__form js-form">
-                        <input type="text" class="order__input" name="имя" required placeholder="Name und Nachname"
+                        <input type="text" class="order__input" name="имя" required placeholder="Vorname und Nachname"
                             oninput="this.setCustomValidity(this.value.trim().split(' ').length < 2 ? 'Bitte geben Sie Vor- und Nachname ein' : '')">
-                        <input type="email" class="order__input" name="email" required placeholder="Email">
-                        <input type="tel" class="order__input" name="phone" required placeholder="Telefonnummer"
+                        <input type="email" class="order__input" name="email" required placeholder="E-mail">
+                        <input type="tel" class="order__input" name="phone" required placeholder="Telefon"
                             pattern="^\+?(\d+\s?)+$">
                         <input type="text" class="order__input" name="country" placeholder="Land" required>
 
@@ -303,7 +303,7 @@
                         <input type="hidden" name="с_кем" id="сКемInput">
                         <input type="hidden" name="lang" value="de">
 
-                        <button class="order__submit" type="submit">Absenden</button>
+                        <button class="order__submit" type="submit">Senden</button>
 
                         <p style="font-size: 1.5rem; color: rgb(34, 34, 34); margin-bottom: 2rem;">
                             *Bei Problemen mit dem Absenden des Formulars oder anderen Fehlern auf der Seite, bitte
