@@ -26,12 +26,12 @@ const success = document.querySelector(".js-success");
 const closeBtn = document.querySelector(".success__close");
 
 if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-        success.classList.remove("active");
+  closeBtn.addEventListener("click", () => {
+    success.classList.remove("active");
 
-        form.reset();          // очищаем данные формы
-        resetFormState();      // скрываем блоки, сбрасываем галки и визуал
-    });
+    form.reset();          // очищаем данные формы
+    resetFormState();      // скрываем блоки, сбрасываем галки и визуал
+  });
 }
 
 setInterval(() => {
@@ -48,36 +48,21 @@ const toggleRequiredFields = () => {
 
 };
 function resetFormState() {
+    document.getElementById("блок_сам_или_семья").style.display = "none";
     document.getElementById("семья").style.display = "none";
     document.getElementById("супруг").style.display = "none";
     document.getElementById("дети").style.display = "none";
 
+    // Сброс всех радиокнопок и чекбоксов (на всякий случай)
     document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
         input.checked = false;
     });
 
+    // Очистка текстового поля детей
     const детиTextarea = document.querySelector('textarea[name="дети_ввод"]');
     if (детиTextarea) детиTextarea.value = "";
 }
-//Статистика кол люедй
-const url = "https://script.google.com/macros/s/AKfycbxy7z5WV9XyFSIRBjvdEv_1H61hZGMaO-nB88cy_O1m5nmjaI08nBiC59H6yOP2V6HkLQ/exec";
 
-function fetchSpotsLeft() {
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            const el = document.getElementById("spotsLeft");
-            if (el && data.spotsLeft !== undefined) {
-                el.textContent = data.spotsLeft;
-            }
-        })
-        .catch(err => {
-            console.error("Ошибка загрузки свободных мест:", err);
-        });
-}
-
-setInterval(fetchSpotsLeft, 5000); // обновлять каждые 5 секунд
-fetchSpotsLeft(); // начальный вызов
 
 form.addEventListener("submit", (event) => {
     toggleRequiredFields(); // <--- добавили перед отправкой
@@ -85,32 +70,28 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxy7z5WV9XyFSIRBjvdEv_1H61hZGMaO-nB88cy_O1m5nmjaI08nBiC59H6yOP2V6HkLQ/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyujkKTtwJ03MGAhm64A8o-eIE4IpEBWCHzeC_PwZVfufDt6sgBPZVBpnaOqjbZ1pFL9A/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
+
 
     fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((response) => {
             console.log("Success!", response);
             loader.classList.remove("active");
-            success.classList.add("active");
+            success.classList.add("active");    
             document.body.classList.remove("is-loader");
-            /*          if (text === "SUCCESS") {
-                         success.classList.add("active");
-                         form.reset();
-                     } else {
-                         alert("Ошибка при отправке формы. Попробуйте позже.");
-                     }*/
+          /*   setTimeout(() => {
+                success.classList.remove("active");
+            }, 3500);
+            form.reset();          // очищаем значения
+            resetFormState();      // сбрасываем внешний вид формы  Закрытие окна автоматически после 3.5 сек*/
         })
-        .catch(error => {
-            loader.classList.remove("active");
-            document.body.classList.remove("is-loader");
-            alert("Ошибка при соединении с сервером. Попробуйте позже.");
+        .catch((error) => {
             console.error("Error!", error.message);
         });
 });
-
 
 
 // timer

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -54,6 +55,9 @@
                         «Viele Wasser können die Liebe nicht auslöschen noch die Ströme sie ertränken.» <br>
                         Hoheslied 8:7
                     </p>
+                    <h1 class="hero__date">
+                        14.09.2025
+                    </h1>
                     <img src="img/img6.jpg" alt="">
                 </div>
             </section>
@@ -227,9 +231,6 @@
                     <h2 class="order__title title">
                         Anmeldeformular
                     </h2>
-                    <div class="gift__title text" id="mesta">
-                        Verbleibende Plätze: <span id="spotsLeft"> wird geladen...</span>
-                    </div>
                     <div class="decor">
                         <div class="decor__left"></div>
                         <img src="img/heart-mini1.svg" alt="" width="50" height="50">
@@ -246,7 +247,7 @@
                             pattern="^\+?(\d+\s?)+$">
                         <input type="text" class="order__input" name="country" placeholder="Land" required>
 
-                      <!--   <div class="order__be">
+                        <div class="order__be">
                             <label class="order__label">
                                 <input type="radio" class="order__radio" name="присутствие" value="да">
                                 <span>Ich kann kommen</span>
@@ -255,7 +256,7 @@
                                 <input type="radio" class="order__radio" name="присутствие" value="нет">
                                 <span>Ich kann nicht kommen</span>
                             </label>
-                        </div> -->
+                        </div>
 
                         <div id="блок_сам_или_семья" style="display:none;">
                             <div class="order__be">
@@ -323,7 +324,16 @@
                                 WhatsApp
                             </a>
                         </div>
+
                     </form>
+                    <div class="heart">
+                        <img src="img/heart-big1.svg" alt="" width="70" height="73">
+                    </div>
+                </div>
+            </section>
+
+            <section class="photo section">
+                <img src="img/img5.jpg" alt="" class="text">
             </section>
             <section class="happy section">
                 <div class="happy__inner inner">
@@ -343,8 +353,7 @@
             <div class="success js-success">
                 <button class="success__close" aria-label="Benachrichtigung schließen">×</button>
                 <h2 class="success__title">💌 Vielen Dank für Ihre Anmeldung!</h2>
-                <p class="success__text_n">Wir werden uns bald per E-Mail bei Ihnen melden, um Ihre Teilnahme an der
-                    Hochzeit zu bestätigen.</p>
+                <p class="success__text_n">Wir werden uns bald per E-Mail bei Ihnen melden, um Ihre Teilnahme an der Hochzeit zu bestätigen.</p>
                 <div class="heart">
                     <img src="img/heart-big1.svg" alt="" width="70" height="73">
                 </div>
@@ -370,9 +379,17 @@
             const супругBlock = document.getElementById('супруг');
             const супругInput = document.getElementById('супругИмя');
 
-            // Показываем блок сам/семья сразу
-            блокСамИлиСемья.style.display = 'block';
-
+            // Обработка выбора "Приду?"
+            присутствиеRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'да' && radio.checked) {
+                        блокСамИлиСемья.style.display = 'block';
+                    } else {
+                        блокСамИлиСемья.style.display = 'none';
+                        resetТипГостяBlock();
+                    }
+                });
+            });
 
             // Обработка выбора "тип гостя"
             типГостяRadios.forEach(radio => {
@@ -442,6 +459,12 @@
                 супругCheckbox.checked = false;
                 updateChildrenVisibility();
                 updateSpouseVisibility();
+            }
+
+            function resetТипГостяBlock() {
+                типГостяRadios.forEach(radio => radio.checked = false);
+                семьяBlock.style.display = 'none';
+                resetFamilyBlock();
             }
         });
 

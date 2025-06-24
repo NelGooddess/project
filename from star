@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const присутствиеRadios = document.querySelectorAll('input[name="присутствие"]');
   const типГостяRadios = document.querySelectorAll('input[name="тип_гостя"]');
   const блокСамИлиСемья = document.getElementById('блок_сам_или_семья');
   const семьяBlock = document.getElementById('семья');
@@ -9,8 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const супругBlock = document.getElementById('супруг');
   const супругInput = document.getElementById('супругИмя');
 
-  // Показываем блок сам/семья сразу
-  блокСамИлиСемья.style.display = 'block';
+  // Обработка выбора "Приду?"
+  присутствиеRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'да' && radio.checked) {
+        блокСамИлиСемья.style.display = 'block';
+      } else {
+        блокСамИлиСемья.style.display = 'none';
+        resetТипГостяBlock();
+      }
+    });
+  });
 
   // Обработка выбора "тип гостя"
   типГостяRadios.forEach(radio => {
@@ -52,6 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+/*   function updateSpouseVisibility() {
+    if (супругCheckbox.checked) {
+      супругBlock.style.display = 'block';
+      супругInput.removeAttribute('disabled');
+      супругInput.removeAttribute('required'); // можно включить при необходимости
+    } else {
+      супругBlock.style.display = 'none';
+      супругInput.setAttribute('disabled', 'disabled');
+      супругInput.value = '';
+    }
+  } */
+
   function updateSpouseVisibility() {
     if (супругCheckbox.checked) {
       супругBlock.style.display = 'block';
@@ -59,15 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       супругBlock.style.display = 'none';
       супругInput.value = '';
-      супругInput.setAttribute('readonly', 'readonly');
+      супругInput.setAttribute('readonly', 'readonly'); // визуально отключить, но оставить в форме
     }
   }
-
+  
   function resetFamilyBlock() {
     детиCheckbox.checked = false;
     супругCheckbox.checked = false;
     updateChildrenVisibility();
     updateSpouseVisibility();
+  }
+
+  function resetТипГостяBlock() {
+    типГостяRadios.forEach(radio => radio.checked = false);
+    семьяBlock.style.display = 'none';
+    resetFamilyBlock();
   }
 });
 
@@ -86,4 +114,4 @@ function updateСКем() {
   } else {
     сКемInput.value = "";
   }
-}
+  }

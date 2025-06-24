@@ -176,7 +176,7 @@ body.is-loader {
 }
 
 .inner {
-  padding: 4rem 3rem;
+  padding: 2rem 3rem;
   background-color: #FAF8F0;
 }
 
@@ -216,7 +216,7 @@ body.is-loader {
   bottom: 7rem;
   text-align: center;
   color: #FFFFFF;
-  z-index: 2;
+  z-index: 1;
   /* font-family: "Marck Script", cursive; */
   /* font-family: 'Lato', sans-serif; */
   font-family: 'Palatino';
@@ -442,40 +442,6 @@ body.is-loader {
   background-color: #f1f1efff; /*5 цвет*/
 }
 
-.programm__title {
-  margin-bottom: 2rem;
-}
-
-.programm__inner {
-  background-color: #FAF8F0;
-  padding: 4rem 0;
-}
-
-/* .programm__list {
-  padding: 1.5rem 3rem 4rem 3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  overflow: auto;
-  gap: 10rem;
-  margin-bottom: 5rem;
-  border-bottom: 0.1rem solid rgba(142, 104, 8, 0.4);
-}
-
-.programm__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-} */
-
 .swiper-button-prev {
   left: 3rem;
 }
@@ -492,35 +458,6 @@ body.is-loader {
 
 .swiper-button-disabled {
   display: none !important;
-}
-
-.programm__slider {
-  padding: 2rem 0;
-  margin-bottom: 4rem;
-}
-
-.programm__slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.programm__time {
-  font-size: 6rem;
-  font-family: "Palatino";
-  color: rgba(142, 104, 8, 0.4);
-  font-weight: 300;
-  letter-spacing: .3rem;
-}
-
-.programm__event {
-  font-family: "Palatino";
-  color: #212121;
-  font-size: 3.2rem;
-  font-weight: 300;
-  white-space: nowrap;
-  max-width: none;
-  letter-spacing: .1rem;
 }
 
 .gift__title {
@@ -770,10 +707,13 @@ body.is-loader {
 }
 
 .happy {
-  position: relative;
-  z-index: 2;
-  margin-bottom: calc(100vh - 4rem);
+    background-color: #FAF8F0;
+    position: relative;
+    z-index: 1;
+  /*   z-index: 2; */
+    margin-bottom: calc(100vh - 4rem);
 }
+
 
 .happy__inner {
   border-bottom-left-radius: 4rem;
@@ -840,53 +780,6 @@ body.is-loader {
   -ms-flex-align: center;
   align-items: center;
 }
-/* 
-.success {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-  -ms-transform: translate(-50%, -50%) scale(0);
-  transform: translate(-50%, -50%) scale(0);
-  background-color: #FAF8F0;
-  z-index: 10;
-  padding: 4rem;
-  border-radius: 2rem;
-
-  -webkit-box-shadow: 0 0 1rem .2rem rgba(0, 0, 0, 0.4);
-
-  box-shadow: 0 0 1rem .2rem rgba(0, 0, 0, 0.4);
-
-  -webkit-transition-duration: 300ms;
-
-  -o-transition-duration: 300ms;
-
-  transition-duration: 300ms;
-}
-
- .success.active {
-  -webkit-transform: translate(-50%, -50%) scale(1);
-  -ms-transform: translate(-50%, -50%) scale(1);
-  transform: translate(-50%, -50%) scale(1);
-} 
-
-/* .success__title {
-  font-size: 4.6rem;
-  font-family: 'Palatino';
-  text-align: center;
-  color: #212121;
-  margin-bottom: 1.5rem;
-}
-
-.success__text {
-  font-size: 2.4rem;
-  text-align: center;
-  margin-bottom: 2.4rem;
-  line-height: 1.4;
-  color: #212121;
-}
- */ 
-
 
 /* После отправки анкеты окно уведомление */
 .js-success {
@@ -1109,3 +1002,34 @@ textarea.order__input {
   }
 }
  */
+
+ .order {
+  background-color: #FAF8F0;
+  position: relative;
+  z-index: 2;
+}
+.order .inner {
+  border-radius: 0;
+}
+
+
+#mesta {
+  margin-top: 2rem;
+  font-size: 3rem;
+}
+
+
+
+input.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 4px;
+  display: none;
+}
+.error-message.active {
+  display: block;
+}

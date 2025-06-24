@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -47,12 +48,12 @@
                     <h1 class="hero__title text">
                         James & <br> <span>Svitlana</span>
                     </h1>
-                    <img src="img/hero-img.jpg" alt="" class="text">
+                    <img src="img/hero-img0.jpg" alt="" class="text">
                 </div>
                 <div class="hero__block js-hero-block">
                     <p class="hero__text"> <i>
-                            «Большие воды не могут потушить любви,
-                            и реки не зальют ее...» </i> <br>
+                        «Большие воды не могут потушить любви,
+                        и реки не зальют ее...» </i> <br>
                         Песня песней 8:7
                     </p>
                     <img src="img/img6.jpg" alt="">
@@ -79,7 +80,7 @@
             </section>
 
             <section class="photo section">
-                <img src="img/img2.jpg" alt="" class="text">
+            <img src="img/img20.jpg" alt="" class="text">
 
             </section>
 
@@ -134,7 +135,7 @@
             </section>
 
             <section class="photo section">
-                <img src="img/img3.jpg" alt="" class="text">
+                <img src="img/img300++++.jpg" alt="" class="text">
             </section>
 
             <section class="dress section">
@@ -205,7 +206,7 @@
             </section> -->
 
             <section class="photo section">
-                <img src="img/img4.jpg" alt="" class="text">
+                <img src="img/img40.jpg" alt="" class="text">
             </section>
 
             <section class="gift section">
@@ -227,9 +228,6 @@
                     <h2 class="order__title title">
                         Форма <br> для заполнения
                     </h2>
-                    <div class="gift__title text" id="mesta">
-                        Осталось свободных мест: <span id="spotsLeft">загрузка...</span>
-                    </div>
                     <div class="decor">
                         <div class="decor__left"></div>
                         <img src="img/heart-mini1.svg" alt="" width="50" height="50">
@@ -238,22 +236,48 @@
                     <p class="order__subtitle text">
                         Подтвердите, пожалуйста, свое участие в торжестве
                     </p>
+                    <!--  <form class="order__form js-form">
+                        <input type="text" class="order__input" name="имя" minlength="2" required
+                            placeholder="Имя и Фамилия">
+                        <input type="number" class="order__input" name="количество" min="0" max="30" required
+                            placeholder="Количество людей">
+                        <div class="order__be">
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
+                                <span>Я смогу прийти</span>
+                            </label>
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="false" value="нет">
+                                <span>Я не смогу прийти</span>
+                            </label>
+                        </div>
+                        <input type="hidden" name="дата" class="js-form-date">
+                        <button class="order__submit" type="submit">отправить</button>
+                    
+<div class="form__group" id="дети_блок">
+    <label for="дети_ввод" class="form__label">Имена и возраст детей (если есть):</label>
+    <textarea name="дети_ввод" class="order__input" rows="3" placeholder="Например: Мария (5 лет), Игорь (7), Лиза (3)"></textarea>
+</div>
+
+</form> SHIFT+ALT+A -->
                     <form class="order__form js-form">
                         <input type="text" class="order__input" name="имя" required placeholder="Имя и Фамилия"
                             oninput="this.setCustomValidity(this.value.trim().split(' ').length < 2 ? 'Введи пожалуйста ваше имя и фамилию' : '')">
-                        <input type="email" class="order__input" name="email" required placeholder="Email"> 
+                        <input type="email" class="order__input" name="email" required placeholder="Email">
                         <input type="tel" class="order__input" name="phone" required placeholder="Номер телефона"
                             pattern="^\+?(\d+\s?)+$">
                         <input type="text" class="order__input" name="country" placeholder="Страна" required>
 
-<!--                         <div class="order__be">
+                        <div class="order__be">
                             <label class="order__label">
-                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да"
-                                    checked>
+                                <input type="radio" class="order__radio" name="присутствие" id="true" value="да">
                                 <span>Я смогу прийти</span>
                             </label>
-                        </div> -->
-
+                            <label class="order__label">
+                                <input type="radio" class="order__radio" name="присутствие" id="false" value="нет">
+                                <span>Я не смогу прийти</span>
+                            </label>
+                        </div>
 
                         <div id="блок_сам_или_семья" style="display:none;">
                             <div class="order__be">
@@ -319,14 +343,18 @@
                                 WhatsApp
                             </a>
                         </div>
+
+
                     </form>
-                    <!--  <div class="heart">
+
+
+                   <!--  <div class="heart">
                         <img src="img/heart-big1.svg" alt="" width="70" height="73">
                     </div>
                 </div> -->
             </section>
 
-            <!--          <section class="photo section">
+   <!--          <section class="photo section">
                 <img src="img/img5.jpg" alt="" class="text">
             </section> -->
 
@@ -375,7 +403,9 @@
     <script defer src="js/swiper-bundle.min.js"></script>
     <script defer src="js/main.js"></script>
     <script defer src="js/form.js"></script>
-
+<!--     <div class="js-success success-message">
+        Ваша анкета отправлена! В скором времени вы получите подтверждение на свадьбу 💌
+    </div> -->
 
 </body>
 
