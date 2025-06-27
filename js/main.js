@@ -60,7 +60,7 @@ function resetFormState() {
     if (детиTextarea) детиTextarea.value = "";
 }
 //Статистика кол люедй
-const url = "https://script.google.com/macros/s/AKfycbzSeJiZhejSeIJ9ftiwtA-unh8Fegwu1xXAX2jsBgcSGn4CkDF49m9UtxdtU-Zl4VSrVw/exec";
+const url = "https://script.google.com/macros/s/AKfycbyrxP2yaO7Jmwk61A5Shf0FMWPrg-uwNJEl9EpMXQ7XFIm7DG6oXnIvKhBZpXYSDFHd/exec";
 
 function fetchSpotsLeft() {
     fetch(url)
@@ -85,7 +85,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzSeJiZhejSeIJ9ftiwtA-unh8Fegwu1xXAX2jsBgcSGn4CkDF49m9UtxdtU-Zl4VSrVw/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyrxP2yaO7Jmwk61A5Shf0FMWPrg-uwNJEl9EpMXQ7XFIm7DG6oXnIvKhBZpXYSDFHd/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
