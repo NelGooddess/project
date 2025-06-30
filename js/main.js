@@ -85,6 +85,13 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
+    
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (phoneInput) {
+        phoneInput.value = phoneInput.value.replace(/\s+/g, '');
+    }
+
+
     const scriptURL = "https://script.google.com/macros/s/AKfycbyrxP2yaO7Jmwk61A5Shf0FMWPrg-uwNJEl9EpMXQ7XFIm7DG6oXnIvKhBZpXYSDFHd/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;

@@ -87,3 +87,12 @@ function updateСКем() {
     сКемInput.value = "";
   }
 }
+
+/* 
+const phoneInput = document.querySelector('input[name="phone"]');
+if (phoneInput) {
+  phoneInput.addEventListener('input', () => {
+    phoneInput.value = phoneInput.value.replace(/\s+/g, '');
+  });
+}
+ */

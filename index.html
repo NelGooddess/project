@@ -252,11 +252,11 @@
                         Подтвердите, пожалуйста, свое участие в торжестве
                     </p>
                     <form class="order__form js-form">
-                        <input type="text" class="order__input" name="имя" required placeholder="Имя и Фамилия"
+                        <input type="text" class="order__input" name="имя" required placeholder="Ваше Имя и Фамилия"
                             oninput="this.setCustomValidity(this.value.trim().split(' ').length < 2 ? 'Введи пожалуйста ваше имя и фамилию' : '')">
                         <input type="email" class="order__input" name="email" required placeholder="E-mail">
                         <input type="tel" class="order__input" name="phone" required placeholder="Номер телефона"
-                            pattern="^\+?(\d+\s?)+$">
+                        pattern="^\+?\d{1,4}(\s?\d{2,5}){0,5}$">
                         <input type="text" class="order__input" name="country" placeholder="Страна" required>
 
                         <!--                         <div class="order__be">
@@ -271,7 +271,7 @@
                         <div id="блок_сам_или_семья" style="display:none;">
                             <div class="order__be">
                                 <label class="order__label">
-                                    <input type="radio" class="order__radio" name="тип_гостя" value="сам">
+                                    <input type="radio" class="order__radio" name="тип_гостя" value="сам" checked>
                                     <span>Сам / сама</span>
                                 </label>
                                 <label class="order__label">
