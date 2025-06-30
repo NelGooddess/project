@@ -60,7 +60,7 @@ function resetFormState() {
     if (детиTextarea) детиTextarea.value = "";
 }
 //Статистика кол люедй
-const url = "https://script.google.com/macros/s/AKfycbyrxP2yaO7Jmwk61A5Shf0FMWPrg-uwNJEl9EpMXQ7XFIm7DG6oXnIvKhBZpXYSDFHd/exec";
+const url = "https://script.google.com/macros/s/AKfycbwjXBbh_t6w3qwtvmOzELh1eekWZ-i96h4QxAdXATtwipcNyQgvpcTF5TE5OMgbhAFDQQ/exec";
 
 function fetchSpotsLeft() {
     fetch(url)
@@ -85,14 +85,14 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     loader.classList.add("active");
     document.body.classList.add("is-loader");
-    
+
     const phoneInput = form.querySelector('input[name="phone"]');
     if (phoneInput) {
         phoneInput.value = phoneInput.value.replace(/\s+/g, '');
     }
 
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyrxP2yaO7Jmwk61A5Shf0FMWPrg-uwNJEl9EpMXQ7XFIm7DG6oXnIvKhBZpXYSDFHd/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwjXBbh_t6w3qwtvmOzELh1eekWZ-i96h4QxAdXATtwipcNyQgvpcTF5TE5OMgbhAFDQQ/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
