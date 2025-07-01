@@ -6,15 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480">
     <title>James & Svitlana</title>
-    <meta name="description"
-        content="    Свадьба — это особенный момент, когда два сердца соединяются в одно, как это было задумано Богом
+    <meta name="description" content="    Свадьба — это особенный момент, когда два сердца соединяются в одно, как это было задумано Богом
         с самого начала.
         В наших сердцах родилось желание идти по жизни вместе, разделить один путь на двоих.
         И нам хочется разделить эту радость с близкими и дорогими нам людьми, кто хочет благословить
         союз наших сердец.
         С радостью приглашаем вас стать частью этого светлого и важного дня.">
-    <meta property="og:description"
-        content='    Свадьба — это особенный момент, когда два сердца соединяются в одно, как это было задумано Богом
+    <meta property="og:description" content='    Свадьба — это особенный момент, когда два сердца соединяются в одно, как это было задумано Богом
         с самого начала. 
         В наших сердцах родилось желание идти по жизни вместе, разделить один путь на двоих.
         И нам хочется разделить эту радость с близкими и дорогими нам людьми, кто хочет благословить
@@ -237,26 +235,38 @@
 
             <section class="order section">
                 <div class="order__inner inner">
+                    
                     <h2 class="order__title title">
                         Форма <br> для заполнения
                     </h2>
-                    <div class="gift__title text" id="mesta">
-                        Осталось свободных мест: <span id="spotsLeft">загрузка...</span>
-                    </div>
                     <div class="decor">
                         <div class="decor__left"></div>
                         <img src="img/heart-mini1.svg" alt="" width="50" height="50">
                         <div class="decor__right"></div>
                     </div>
+                        <!-- <p class="order__subtitle text" style="text-decoration: underline; font-weight: bold; margin-bottom: 0.5rem; text-underline-offset: 1rem;"> До 31.07 </p> -->
+                        <p class="order__subtitle text">Будем признательны, если вы зарегистрируетесь или сообщите об отсутствии</p>
+                        <p class="order__subtitle text" style=" font-weight: bold; "> до 31.07 </p>
+                    <div class="decor">
+                        <div class="decor__left"></div>
+                        <img src="img/heart-mini1.svg" alt="" width="50" height="50">
+                        <div class="decor__right"></div>
+                    </div>
+
+                    <div class="gift__title text" id="mesta" style="margin-bottom: 2rem;">
+                        Осталось свободных мест: <span id="spotsLeft">загрузка...</span>
+                    </div>
+
+                   <!--  
                     <p class="order__subtitle text">
                         Подтвердите, пожалуйста, свое участие в торжестве
-                    </p>
+                    </p> -->
                     <form class="order__form js-form">
                         <input type="text" class="order__input" name="имя" required placeholder="Ваше Имя и Фамилия"
                             oninput="this.setCustomValidity(this.value.trim().split(' ').length < 2 ? 'Введи пожалуйста ваше имя и фамилию' : '')">
                         <input type="email" class="order__input" name="email" required placeholder="E-mail">
                         <input type="tel" class="order__input" name="phone" required placeholder="Номер телефона"
-                        pattern="^\+?\d{1,4}(\s?\d{2,5}){0,5}$">
+                            pattern="^\+?\d{1,4}(\s?\d{2,5}){0,5}$">
                         <input type="text" class="order__input" name="country" placeholder="Страна" required>
 
                         <!--                         <div class="order__be">

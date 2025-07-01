@@ -60,7 +60,7 @@ function resetFormState() {
     if (детиTextarea) детиTextarea.value = "";
 }
 //Статистика кол люедй
-const url = "https://script.google.com/macros/s/AKfycbwjXBbh_t6w3qwtvmOzELh1eekWZ-i96h4QxAdXATtwipcNyQgvpcTF5TE5OMgbhAFDQQ/exec";
+const url = "https://script.google.com/macros/s/AKfycbyI_aIYY1yAXbyf4N_24uc_Q1SzqKYyH-PxW-NJCz7DxGkl4258Fy4uLSdb3wnDoPVNPQ/exec";
 
 function fetchSpotsLeft() {
     fetch(url)
@@ -68,15 +68,25 @@ function fetchSpotsLeft() {
         .then(data => {
             const el = document.getElementById("spotsLeft");
             if (el && data.spotsLeft !== undefined) {
-                el.textContent = data.spotsLeft;
-            }
+                const spots = Number(data.spotsLeft);
+                const visibleSpots = spots < 0 ? 0 : spots;
+                el.textContent = visibleSpots;
+            
+                const submitBtn = document.querySelector('.order__submit');
+                if (submitBtn) {
+                    const isFull = visibleSpots === 0;
+                    submitBtn.disabled = isFull;
+                    submitBtn.style.opacity = isFull ? '0.5' : '1';
+                    submitBtn.style.pointerEvents = isFull ? 'none' : 'auto';
+                }
+            }            
         })
         .catch(err => {
             console.error("Ошибка загрузки свободных мест:", err);
         });
 }
 
-setInterval(fetchSpotsLeft, 5000); // обновлять каждые 5 секунд
+setInterval(fetchSpotsLeft, 4000); // обновлять каждые 5 секунд
 fetchSpotsLeft(); // начальный вызов
 
 form.addEventListener("submit", (event) => {
@@ -92,7 +102,7 @@ form.addEventListener("submit", (event) => {
     }
 
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbwjXBbh_t6w3qwtvmOzELh1eekWZ-i96h4QxAdXATtwipcNyQgvpcTF5TE5OMgbhAFDQQ/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyI_aIYY1yAXbyf4N_24uc_Q1SzqKYyH-PxW-NJCz7DxGkl4258Fy4uLSdb3wnDoPVNPQ/exec";
 
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
@@ -161,7 +171,7 @@ updateTimer();
         !/OPR/.test(navigator.userAgent)
     );
 };
-
+ 
 const isSafari = () => {
     return (
         /Safari/.test(navigator.userAgent) &&
@@ -170,7 +180,7 @@ const isSafari = () => {
         !/OPR/.test(navigator.userAgent)
     );
 };
-
+ 
 const isTelegram = () => {
     return (
         /Telegram/.test(navigator.userAgent) ||
