@@ -232,23 +232,24 @@
                     <h2 class="order__title title">
                         Anmeldeformular
                     </h2>
-                    
+
                     <div class="decor">
                         <div class="decor__left"></div>
                         <img src="img/heart-mini1.svg" alt="" width="50" height="50">
                         <div class="decor__right"></div>
                     </div>
-                    <p class="order__subtitle text">Wir wären dankbar, wenn Sie sich registrieren oder Ihre Abwesenheit mitteilen</p>
+                    <p class="order__subtitle text">Wir wären dankbar, wenn Sie sich registrieren oder Ihre Abwesenheit
+                        mitteilen</p>
                     <p class="order__subtitle text" style=" font-weight: bold; "> bis zum 31.07 </p>
                     <div class="decor">
                         <div class="decor__left"></div>
                         <img src="img/heart-mini1.svg" alt="" width="50" height="50">
                         <div class="decor__right"></div>
                     </div>
-                    <div class="gift__title text" id="mesta"  style="margin-bottom: 2rem;">
+                    <div class="gift__title text" id="mesta" style="margin-bottom: 2rem;">
                         Verbleibende Plätze: <span id="spotsLeft"> wird geladen...</span>
                     </div>
-                    
+
                     <form class="order__form js-form">
                         <input type="text" class="order__input" name="имя" required
                             placeholder="Ihr Vorname und Nachname"
@@ -442,13 +443,14 @@
                 if (супругCheckbox.checked) {
                     супругBlock.style.display = 'block';
                     супругInput.removeAttribute('readonly');
+                    супругInput.setAttribute('required', 'required'); // ДЕЛАЕМ ОБЯЗАТЕЛЬНЫМ
                 } else {
                     супругBlock.style.display = 'none';
                     супругInput.value = '';
-                    супругInput.setAttribute('readonly', 'readonly'); // визуально отключить, но оставить в форме
+                    супругInput.setAttribute('readonly', 'readonly');
+                    супругInput.removeAttribute('required'); // УБИРАЕМ ОБЯЗАТЕЛЬНОСТЬ, если чекбокс снят
                 }
             }
-
             function resetFamilyBlock() {
                 детиCheckbox.checked = false;
                 супругCheckbox.checked = false;

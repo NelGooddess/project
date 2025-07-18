@@ -56,13 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (супругCheckbox.checked) {
       супругBlock.style.display = 'block';
       супругInput.removeAttribute('readonly');
+      супругInput.setAttribute('required', 'required'); // ДЕЛАЕМ ОБЯЗАТЕЛЬНЫМ
     } else {
       супругBlock.style.display = 'none';
       супругInput.value = '';
       супругInput.setAttribute('readonly', 'readonly');
+      супругInput.removeAttribute('required'); // УБИРАЕМ ОБЯЗАТЕЛЬНОСТЬ, если чекбокс снят
     }
   }
-
+  
   function resetFamilyBlock() {
     детиCheckbox.checked = false;
     супругCheckbox.checked = false;
