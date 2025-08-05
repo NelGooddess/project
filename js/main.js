@@ -29,13 +29,16 @@ if (closeBtn) {
     closeBtn.addEventListener("click", () => {
         const submitBtn = document.querySelector('.order__submit'); 
         success.classList.remove("active");
+
+        
+        form.reset();          // очищаем данные формы
+        resetFormState();      // скрываем блоки, сбрасываем галки и визуал
+        fetchSpotsLeft();
+        
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
         submitBtn.style.pointerEvents = 'auto';
 
-        form.reset();          // очищаем данные формы
-        resetFormState();      // скрываем блоки, сбрасываем галки и визуал
-        fetchSpotsLeft();
 
     });
 }
