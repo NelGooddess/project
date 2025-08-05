@@ -161,7 +161,7 @@ form.addEventListener("submit", (event) => {
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
                 submitBtn.style.pointerEvents = 'auto';
-            }, 1000); // экран останется 2 секунды
+            }, 3000); // экран останется 2 секунды
         })
         .catch(error => {
             loader.classList.remove("active");
