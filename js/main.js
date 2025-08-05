@@ -27,10 +27,16 @@ const closeBtn = document.querySelector(".success__close");
 
 if (closeBtn) {
     closeBtn.addEventListener("click", () => {
+        const submitBtn = document.querySelector('.order__submit'); 
         success.classList.remove("active");
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.pointerEvents = 'auto';
 
         form.reset();          // очищаем данные формы
         resetFormState();      // скрываем блоки, сбрасываем галки и визуал
+        fetchSpotsLeft();
+
     });
 }
 
@@ -86,18 +92,21 @@ function fetchSpotsLeft() {
         });
 }
 
-setInterval(fetchSpotsLeft, 4000); // обновлять каждые 5 секунд 
-fetchSpotsLeft(); // начальный вызов
+/* setInterval(fetchSpotsLeft, 4000); // обновлять каждые 5 секунд 
+ */fetchSpotsLeft(); // начальный вызов
+
 
 form.addEventListener("submit", (event) => {
     toggleRequiredFields(); // <--- добавили перед отправкой
     updateСКем(); //
     event.preventDefault();
+
+
     const submitBtn = document.querySelector('.order__submit');
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.5';
     submitBtn.style.pointerEvents = 'none';
-    
+
     loader.classList.add("active");
     document.body.classList.add("is-loader");
 
@@ -131,37 +140,40 @@ form.addEventListener("submit", (event) => {
                 alert("Ошибка при соединении с сервером. Попробуйте позже.");
                 console.error("Error!", error.message);
             }); */
-/* 
-    fetch(scriptURL, { method: "POST", body: new FormData(form) })
-        .then((response) => {
-            loader.classList.remove("active");
-            success.classList.add("active");
-            document.body.classList.remove("is-loader");
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.pointerEvents = 'auto';
-        })
-        .catch(error => {
-            loader.classList.remove("active");
-            document.body.classList.remove("is-loader");
-            alert("Ошибка при соединении с сервером. Попробуйте позже.");
-            console.error("Error!", error.message);
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.pointerEvents = 'auto';
-        }); */
+    /* 
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
+            .then((response) => {
+                loader.classList.remove("active");
+                success.classList.add("active");
+                document.body.classList.remove("is-loader");
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+            })
+            .catch(error => {
+                loader.classList.remove("active");
+                document.body.classList.remove("is-loader");
+                alert("Ошибка при соединении с сервером. Попробуйте позже.");
+                console.error("Error!", error.message);
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+            }); */
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then(response => response.text())
         .then(() => {
             setTimeout(() => {  // <--- задержка перед скрытием экрана
                 loader.classList.remove("active");
                 document.body.classList.remove("is-loader");
                 success.classList.add("active");
-
-                submitBtn.disabled = false;
+              /*   submitBtn.disabled = false;
                 submitBtn.style.opacity = '1';
-                submitBtn.style.pointerEvents = 'auto';
-            }, 3000); // экран останется 2 секунды
+                submitBtn.style.pointerEvents = 'auto'; */
+
+/*                 form.reset();          // очищаем данные формы
+                resetFormState();      // скрываем блоки, сбрасываем галки и визуал
+                fetchSpotsLeft(); */
+            }, 500); // экран останется 2 секунды
         })
         .catch(error => {
             loader.classList.remove("active");
