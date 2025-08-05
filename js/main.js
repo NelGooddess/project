@@ -71,7 +71,7 @@ function fetchSpotsLeft() {
                 const spots = Number(data.spotsLeft);
                 const visibleSpots = spots < 0 ? 0 : spots;
                 el.textContent = visibleSpots;
-            
+
                 const submitBtn = document.querySelector('.order__submit');
                 if (submitBtn) {
                     const isFull = visibleSpots === 0;
@@ -79,7 +79,7 @@ function fetchSpotsLeft() {
                     submitBtn.style.opacity = isFull ? '0.5' : '1';
                     submitBtn.style.pointerEvents = isFull ? 'none' : 'auto';
                 }
-            }            
+            }
         })
         .catch(err => {
             console.error("Ошибка загрузки свободных мест:", err);
@@ -107,7 +107,7 @@ form.addEventListener("submit", (event) => {
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
 
-    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+/*     fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((response) => {
             console.log("Success!", response);
             loader.classList.remove("active");
@@ -118,13 +118,32 @@ form.addEventListener("submit", (event) => {
                          form.reset();
                      } else {
                          alert("Ошибка при отправке формы. Попробуйте позже.");
-                     }*/
+                     }* /
         })
         .catch(error => {
             loader.classList.remove("active");
             document.body.classList.remove("is-loader");
             alert("Ошибка при соединении с сервером. Попробуйте позже.");
             console.error("Error!", error.message);
+        }); */
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+        .then((response) => {
+            loader.classList.remove("active");
+            success.classList.add("active");
+            document.body.classList.remove("is-loader");
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.pointerEvents = 'auto';
+        })
+        .catch(error => {
+            loader.classList.remove("active");
+            document.body.classList.remove("is-loader");
+            alert("Ошибка при соединении с сервером. Попробуйте позже.");
+            console.error("Error!", error.message);
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.pointerEvents = 'auto';
         });
 });
 
