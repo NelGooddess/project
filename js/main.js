@@ -86,13 +86,18 @@ function fetchSpotsLeft() {
         });
 }
 
-setInterval(fetchSpotsLeft, 4000); // обновлять каждые 5 секунд
+setInterval(fetchSpotsLeft, 4000); // обновлять каждые 5 секунд 
 fetchSpotsLeft(); // начальный вызов
 
 form.addEventListener("submit", (event) => {
     toggleRequiredFields(); // <--- добавили перед отправкой
     updateСКем(); //
     event.preventDefault();
+    const submitBtn = document.querySelector('.order__submit');
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.5';
+    submitBtn.style.pointerEvents = 'none';
+    
     loader.classList.add("active");
     document.body.classList.add("is-loader");
 
@@ -107,27 +112,27 @@ form.addEventListener("submit", (event) => {
     const dataTime = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     document.querySelector(".js-form-date").value = dataTime;
 
-/*     fetch(scriptURL, { method: "POST", body: new FormData(form) })
-        .then((response) => {
-            console.log("Success!", response);
-            loader.classList.remove("active");
-            success.classList.add("active");
-            document.body.classList.remove("is-loader");
-            /*          if (text === "SUCCESS") {
-                         success.classList.add("active");
-                         form.reset();
-                     } else {
-                         alert("Ошибка при отправке формы. Попробуйте позже.");
-                     }* /
-        })
-        .catch(error => {
-            loader.classList.remove("active");
-            document.body.classList.remove("is-loader");
-            alert("Ошибка при соединении с сервером. Попробуйте позже.");
-            console.error("Error!", error.message);
-        }); */
-
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    /*     fetch(scriptURL, { method: "POST", body: new FormData(form) })
+            .then((response) => {
+                console.log("Success!", response);
+                loader.classList.remove("active");
+                success.classList.add("active");
+                document.body.classList.remove("is-loader");
+                /*          if (text === "SUCCESS") {
+                             success.classList.add("active");
+                             form.reset();
+                         } else {
+                             alert("Ошибка при отправке формы. Попробуйте позже.");
+                         }* /
+            })
+            .catch(error => {
+                loader.classList.remove("active");
+                document.body.classList.remove("is-loader");
+                alert("Ошибка при соединении с сервером. Попробуйте позже.");
+                console.error("Error!", error.message);
+            }); */
+/* 
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
         .then((response) => {
             loader.classList.remove("active");
             success.classList.add("active");
@@ -141,6 +146,29 @@ form.addEventListener("submit", (event) => {
             document.body.classList.remove("is-loader");
             alert("Ошибка при соединении с сервером. Попробуйте позже.");
             console.error("Error!", error.message);
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.pointerEvents = 'auto';
+        }); */
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+        .then(response => response.text())
+        .then(() => {
+            setTimeout(() => {  // <--- задержка перед скрытием экрана
+                loader.classList.remove("active");
+                document.body.classList.remove("is-loader");
+                success.classList.add("active");
+
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+            }, 2000); // экран останется 2 секунды
+        })
+        .catch(error => {
+            loader.classList.remove("active");
+            document.body.classList.remove("is-loader");
+            alert("Ошибка при соединении с сервером. Попробуйте позже.");
+            console.error("Error!", error.message);
+
             submitBtn.disabled = false;
             submitBtn.style.opacity = '1';
             submitBtn.style.pointerEvents = 'auto';
